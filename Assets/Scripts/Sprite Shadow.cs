@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class SpriteShadow : MonoBehaviour
@@ -7,50 +6,59 @@ public class SpriteShadow : MonoBehaviour
     [SerializeField] private Vector2 scale;
     [SerializeField] private Color shadowColor;
     [SerializeField] private int shadowOrder;
+    [SerializeField] private GameObject prefab;
+    [SerializeField] private bool createMask;
 
-    private SpriteRenderer _spriteSprRnd;
-    private SpriteRenderer _shadowSprRnd;
-    private Transform _shadowTransform;
-    private SpriteMask _spriteMask;
+    private GameObject _prefabShadow;
+    private SpriteRenderer[] _prefabSprRnd;
+    
     private Transform _maskTransform;
-    private void Start()
+    private SpriteMask _mask;
+    private void Awake()
     {
-        _spriteSprRnd = GetComponent<SpriteRenderer>();
-        
-        _shadowTransform = new GameObject().transform;
-        _shadowTransform.parent = transform;
-        _shadowTransform.gameObject.name = "Shadow";
-
-        _shadowSprRnd = _shadowTransform.gameObject.AddComponent<SpriteRenderer>();
-        _shadowSprRnd.color = shadowColor;
-        _shadowSprRnd.sortingOrder = shadowOrder;
-        
-        _maskTransform = transform.Find("Shadow Mask");
-        if (_maskTransform)
+        if (prefab)
         {
-            _spriteMask = _maskTransform.GetComponent<SpriteMask>();
+            _prefabShadow = Instantiate(prefab);
+            _prefabShadow.name = prefab.name + " Shadow";
+            
+            _prefabSprRnd = _prefabShadow.GetComponentsInChildren<SpriteRenderer>();
+            
+            _prefabShadow.transform.position = new Vector3(transform.position.x + offset.x, transform.position.y + offset.y);
+            _prefabShadow.transform.localScale = new Vector3(scale.x, scale.y);
+        
+            if (_prefabSprRnd == null) return;
+            foreach (var spriteRenderer in _prefabSprRnd)
+            {
+                spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
+                spriteRenderer.color = shadowColor;
+                spriteRenderer.sortingOrder = shadowOrder;
+            }
+            
+            switch (prefab.name)
+            {
+                case "Player":
+                    var playerMovementScript = _prefabShadow.GetComponent<PlayerMovement>();
+                    playerMovementScript.offset = new Vector2(offset.x, offset.y);
+                    
+                    if (!createMask) return;
+                    _mask = _prefabShadow.transform.Find("Head").gameObject.AddComponent<SpriteMask>();
+                    _prefabSprRnd[0].maskInteraction = SpriteMaskInteraction.None;
+                    break;
+
+                default:
+                    Debug.LogError("Unhandled prefab name: " + prefab.name);
+                    break;
+            }
         }
         else
         {
-            _maskTransform = new GameObject().transform;
-            _maskTransform.parent = transform;
-            _maskTransform.gameObject.name = "Shadow Mask";
-            _spriteMask = _maskTransform.gameObject.AddComponent<SpriteMask>();
+            Debug.LogError("There's no prefab to instantiate!");
         }
-        
-        if(shadowOrder == -1) _shadowSprRnd.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
     }
-    
+
     private void LateUpdate()
     {
-        _shadowTransform.position = new Vector3(transform.position.x + offset.x, transform.position.y + offset.y);
-        _shadowTransform.localScale = new Vector3(scale.x, scale.y);
-        _shadowSprRnd.sprite = _spriteSprRnd.sprite;
-        
-        if (shadowOrder == -1) return;
-        if(!_maskTransform) return;
-        _maskTransform.position = new Vector3(transform.position.x + offset.x, transform.position.y + offset.y);
-        _maskTransform.localScale = new Vector3(scale.x, scale.y);
-        _spriteMask.sprite = _spriteSprRnd.sprite;
+        if(!createMask) return;
+        _mask.sprite = _prefabSprRnd[0].sprite;
     }
 }

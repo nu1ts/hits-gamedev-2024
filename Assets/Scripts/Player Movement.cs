@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Animator rightArmAnimator;
     [SerializeField] private Animator leftLegAnimator;
     [SerializeField] private Animator rightLegAnimator;
+    [SerializeField] public Vector2 offset;
     
     private Vector2 _input;
     private Rigidbody2D _rigidbody2D;
@@ -51,6 +52,8 @@ public class PlayerMovement : MonoBehaviour
     {
         var mousePosition = _cam.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         var direction = new Vector2(mousePosition.x - target.position.x, mousePosition.y - target.position.y);
+
+        direction += offset;
 
         var targetRotation = Quaternion.LookRotation(Vector3.forward, direction);
         target.rotation = Quaternion.Lerp(target.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
