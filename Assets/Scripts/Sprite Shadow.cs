@@ -1,56 +1,148 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class SpriteShadow : MonoBehaviour
 {
-    [SerializeField] private Vector2 offset;
-    [SerializeField] private Vector2 scale;
-    [SerializeField] private Color shadowColor;
-    [SerializeField] private int shadowOrder;
+    public Vector2 offset;
+    public Vector2 scale;
+    public Color shadowColor;
+    public int shadowOrder;
+    public GameObject prefab;
+    public bool mask;
 
-    private SpriteRenderer _spriteSprRnd;
-    private SpriteRenderer _shadowSprRnd;
-    private Transform _shadowTransform;
-    private SpriteMask _spriteMask;
-    private Transform _maskTransform;
+    private GameObject _prefabShadow;
+    private SpriteRenderer[] _prefabSprRnd;
+    private SpriteMask[] _spriteMasks;
+    public string[] spriteNames;
+    
+    public bool[] visibility;
+    public bool[] hasMask;
+
+    private void Awake()
+    {
+        InstantiatePrefab();
+    }
+
     private void Start()
     {
-        _spriteSprRnd = GetComponent<SpriteRenderer>();
-        
-        _shadowTransform = new GameObject().transform;
-        _shadowTransform.parent = transform;
-        _shadowTransform.gameObject.name = "Shadow";
+        UpdateVisibility();
+        CreateMasks();
+        RemoveInvisibleObjects();
+    }
 
-        _shadowSprRnd = _shadowTransform.gameObject.AddComponent<SpriteRenderer>();
-        _shadowSprRnd.color = shadowColor;
-        _shadowSprRnd.sortingOrder = shadowOrder;
+    private void OnValidate()
+    {
+        if (!prefab) return;
         
-        _maskTransform = transform.Find("Shadow Mask");
-        if (_maskTransform)
+        var tempSprRnd = prefab.GetComponentsInChildren<SpriteRenderer>();
+        
+        spriteNames = new string[tempSprRnd.Length];
+        for (var i = 0; i < tempSprRnd.Length; i++)
         {
-            _spriteMask = _maskTransform.GetComponent<SpriteMask>();
-        }
-        else
-        {
-            _maskTransform = new GameObject().transform;
-            _maskTransform.parent = transform;
-            _maskTransform.gameObject.name = "Shadow Mask";
-            _spriteMask = _maskTransform.gameObject.AddComponent<SpriteMask>();
+            spriteNames[i] = tempSprRnd[i].gameObject.name;
         }
         
-        if(shadowOrder == -1) _shadowSprRnd.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
+        if (visibility == null || visibility.Length != tempSprRnd.Length)
+        {
+            visibility = new bool[tempSprRnd.Length];
+            for (var i = 0; i < tempSprRnd.Length; i++)
+            {
+                visibility[i] = tempSprRnd[i].enabled;
+            }
+        }
+
+        if (hasMask != null && hasMask.Length == tempSprRnd.Length) return;
+        hasMask = new bool[tempSprRnd.Length];
+        for (var i = 0; i < tempSprRnd.Length; i++)
+        {
+            hasMask[i] = false;
+        }
+    }
+
+    private void InstantiatePrefab()
+    {
+        if (!prefab) return;
+        
+        _prefabShadow = Instantiate(prefab);
+        _prefabShadow.name = prefab.name + " Shadow";
+
+        _prefabSprRnd = _prefabShadow.GetComponentsInChildren<SpriteRenderer>();
+        _spriteMasks = new SpriteMask[_prefabSprRnd.Length];
+
+        _prefabShadow.transform.position = new Vector3(transform.position.x + offset.x, transform.position.y + offset.y);
+        _prefabShadow.transform.localScale = new Vector3(scale.x, scale.y);
+
+        foreach (var spriteRenderer in _prefabSprRnd)
+        {
+            spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
+            spriteRenderer.color = shadowColor;
+            spriteRenderer.sortingOrder = shadowOrder;
+        }
+
+        switch (prefab.name)
+        {
+            case "Player":
+                var playerMovementScript = _prefabShadow.GetComponent<PlayerMovement>();
+                if (playerMovementScript != null)
+                {
+                    playerMovementScript.crosshairOffset = new Vector2(offset.x, offset.y);
+                }
+                else
+                {
+                    Debug.LogWarning("PlayerMovement script is not attached to the prefab!");
+                }
+                break;
+        }
+    }
+
+    private void UpdateVisibility()
+    {
+        if (_prefabSprRnd == null || visibility == null || _prefabSprRnd.Length != visibility.Length) return;
+        for (var i = 0; i < _prefabSprRnd.Length; i++)
+        {
+            _prefabSprRnd[i].enabled = visibility[i];
+        }
     }
     
+    private void CreateMasks()
+    {
+        if (_prefabSprRnd == null || hasMask == null || _prefabSprRnd.Length != hasMask.Length || !mask) return;
+        
+        for (var i = 0; i < _prefabSprRnd.Length; i++)
+        {
+            if (!hasMask[i]) return;
+            _spriteMasks[i] = _prefabSprRnd[i].gameObject.AddComponent<SpriteMask>();
+            _prefabSprRnd[i].maskInteraction = SpriteMaskInteraction.None;
+        }
+    }
+    
+    private void UpdateMasks()
+    {
+        if (_prefabSprRnd == null || _spriteMasks == null || _prefabSprRnd.Length != _spriteMasks.Length || !mask) return;
+
+        for (var i = 0; i < _spriteMasks.Length; i++)
+        {
+            if (_spriteMasks[i])
+            {
+                _spriteMasks[i].sprite = _prefabSprRnd[i].sprite;
+            }
+        }
+    }
+    
+    private void RemoveInvisibleObjects()
+    {
+        if (_prefabSprRnd == null) return;
+
+        foreach (var spriteRenderer in _prefabSprRnd)
+        {
+            if (!spriteRenderer.enabled)
+            {
+                Destroy(spriteRenderer.gameObject);
+            }
+        }
+    }
+
     private void LateUpdate()
     {
-        _shadowTransform.position = new Vector3(transform.position.x + offset.x, transform.position.y + offset.y);
-        _shadowTransform.localScale = new Vector3(scale.x, scale.y);
-        _shadowSprRnd.sprite = _spriteSprRnd.sprite;
-        
-        if (shadowOrder == -1) return;
-        if(!_maskTransform) return;
-        _maskTransform.position = new Vector3(transform.position.x + offset.x, transform.position.y + offset.y);
-        _maskTransform.localScale = new Vector3(scale.x, scale.y);
-        _spriteMask.sprite = _spriteSprRnd.sprite;
+        UpdateMasks();
     }
 }

@@ -1,0 +1,15 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/UXML/Sprite%20Shadow%20Editor%20Style.uss?fileID=7433441132597879392&amp;guid=03d50efc70f72604e84915f18345a6d0&amp;type=3#Sprite Shadow Editor Style" />
+    <uie:ObjectField label="Prefab" name="PrefabField" binding-path="prefab" />
+    <ui:GroupBox text="Shadows" style="padding-bottom: 0;">
+        <ui:Foldout text="Visibility Settings" name="VisibilityFoldout" view-data-key="VisibilityFoldoutPosition" />
+        <uie:PropertyField binding-path="offset" />
+        <uie:PropertyField binding-path="scale" />
+        <uie:PropertyField binding-path="shadowColor" label="Color" />
+        <uie:PropertyField binding-path="shadowOrder" label="Order" />
+    </ui:GroupBox>
+    <ui:GroupBox text="Sprite Mask">
+        <uie:PropertyField binding-path="mask" label="Create Sprite Mask" name="MaskField" />
+        <ui:Foldout text="Sprite Masks Settings" name="HasMaskFoldout" view-data-key="HasMaskFoldoutPosition" />
+    </ui:GroupBox>
+</ui:UXML>

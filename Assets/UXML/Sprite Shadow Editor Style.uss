@@ -1,0 +1,9 @@
+.unity-group-box__label {
+    -unity-font-style: bold;
+    letter-spacing: 1px;
+}
+
+.unity-group-box {
+    padding-left: 0;
+    margin-top: 10px;
+}
