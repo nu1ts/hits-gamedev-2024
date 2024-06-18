@@ -122,6 +122,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &155056080 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3882934171400280983, guid: 14c853d7f497b2e4f82361a8f6d60207, type: 3}
+  m_PrefabInstance: {fileID: 2107400504}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,71 +285,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1955117832354689935, guid: 14c853d7f497b2e4f82361a8f6d60207, type: 3}
   m_PrefabInstance: {fileID: 2107400504}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1785822197
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1785822199}
-  - component: {fileID: 1785822198}
-  - component: {fileID: 1785822200}
-  m_Layer: 0
-  m_Name: Shadow Spawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1785822198
+--- !u!114 &1555598201
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1785822197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b75cf75ab101c854285a69afc8a0b2b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offset: {x: -0.5, y: -0.1}
-  scale: {x: 1, y: 1}
-  shadowColor: {r: 0, g: 0, b: 0, a: 0.49019608}
-  shadowOrder: 0
-  prefab: {fileID: 3882934171400280983, guid: 14c853d7f497b2e4f82361a8f6d60207, type: 3}
-  createMask: 1
-  spriteNames:
-  - Head
-  - Left Arm
-  - Right Arm
-  - Left Leg
-  - Right Leg
-  visibility: 0101010000
---- !u!4 &1785822199
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1785822197}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1785822200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1785822197}
+  m_GameObject: {fileID: 155056080}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b75cf75ab101c854285a69afc8a0b2b8, type: 3}
@@ -355,7 +302,7 @@ MonoBehaviour:
   shadowColor: {r: 0, g: 0, b: 0, a: 0.49019608}
   shadowOrder: -1
   prefab: {fileID: 3882934171400280983, guid: 14c853d7f497b2e4f82361a8f6d60207, type: 3}
-  createMask: 1
+  mask: 1
   spriteNames:
   - Head
   - Left Arm
@@ -363,6 +310,33 @@ MonoBehaviour:
   - Left Leg
   - Right Leg
   visibility: 0101010101
+  hasMask: 0100000000
+--- !u!114 &1555598202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155056080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b75cf75ab101c854285a69afc8a0b2b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: -0.5, y: 0}
+  scale: {x: 1, y: 1}
+  shadowColor: {r: 0, g: 0, b: 0, a: 0.49019608}
+  shadowOrder: 0
+  prefab: {fileID: 3882934171400280983, guid: 14c853d7f497b2e4f82361a8f6d60207, type: 3}
+  mask: 1
+  spriteNames:
+  - Head
+  - Left Arm
+  - Right Arm
+  - Left Leg
+  - Right Leg
+  visibility: 0101010000
+  hasMask: 0100000000
 --- !u!1001 &2107400504
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -418,7 +392,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3882934171400280983, guid: 14c853d7f497b2e4f82361a8f6d60207, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1555598202}
+    - targetCorrespondingSourceObject: {fileID: 3882934171400280983, guid: 14c853d7f497b2e4f82361a8f6d60207, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1555598201}
   m_SourcePrefab: {fileID: 100100000, guid: 14c853d7f497b2e4f82361a8f6d60207, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -426,5 +406,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 2107400504}
-  - {fileID: 1785822199}
   - {fileID: 1097901024}
