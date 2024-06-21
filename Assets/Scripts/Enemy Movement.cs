@@ -1,73 +1,80 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
+public class EnemyMovement : MoveController
 {
-    [SerializeField] private float speed = 3f;
-    [SerializeField] private float acceleration = 100f;
-    [SerializeField] private float stoppingDistance = 2f;
-    [SerializeField] private Transform player;
-    [SerializeField] private Transform head;
-    [SerializeField] private Transform arms;
-    [SerializeField] private Transform legs;
-    [SerializeField] private float headRotationSpeed = 5f;
-    [SerializeField] private float armsRotationSpeed = 8f;
-    [SerializeField] private float legsRotationSpeed = 5f;
-    [SerializeField] private Animator leftArmAnimator;
-    [SerializeField] private Animator rightArmAnimator;
-    [SerializeField] private Animator leftLegAnimator;
-    [SerializeField] private Animator rightLegAnimator;
-    
-    private Rigidbody2D _rigidbody2D;
-    private int _isMovingHash;
+    public float speed = 3f;
+    public float acceleration = 100f;
+    public float stoppingDistance = 2f;
+    public float headRotationSpeed = 5f;
+    public float armsRotationSpeed = 8f;
+    public float legsRotationSpeed = 5f;
 
+    public Transform target;
+    public Transform head;
+    public Transform arms;
+    public Transform legs;
+
+    private int _isMovingHash;
+    private List<Animator> _animators;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        
+        _isMovingHash = Animator.StringToHash("isMoving");
+        
+        if (target != null) return;
+        
+        var targetObj = GameObject.FindGameObjectWithTag("Player");
+        if (targetObj != null)
+        {
+            target = targetObj.transform;
+        }
+        else
+        {
+            Debug.LogWarning("There isn't Player to attack");
+        }
+    }
+    
     private void Start()
     {
-        _rigidbody2D = GetComponent<Rigidbody2D>();
-        _isMovingHash = Animator.StringToHash("isMoving");
-
-        // Найти игрока в сцене, если не был присвоен в инспекторе
-        if (player == null)
-        {
-            player = GameObject.FindGameObjectWithTag("Player").transform;
-        }
+        _animators = GetComponentsInChildren<Animator>().ToList();
     }
 
     private void FixedUpdate()
-    {
+    { 
         MoveEnemy();
-        RotateTowardsPlayer(head, headRotationSpeed);
-        RotateTowardsPlayer(arms, armsRotationSpeed);
-        RotateTowardsPlayer(legs, legsRotationSpeed);
+        RotateEnemy();
     }
 
     private void MoveEnemy()
-    {
-        if (player == null)
-        {
-            Debug.LogWarning("Player not found");
-            return;
-        }
+    { 
+        Vector2 currentPosition = transform.position;
+        Vector2 targetPosition = target.position;
+        
+        var distanceToTarget = Vector2.Distance(currentPosition, targetPosition);
 
-        var direction = (player.position - transform.position).normalized;
-        var distance = Vector2.Distance(player.position, transform.position);
-        Vector2 input = distance > stoppingDistance ? direction : Vector2.zero;
+        var toPosition = distanceToTarget > stoppingDistance ? targetPosition : currentPosition;
+        
+        MoveFromTo(currentPosition, toPosition, speed, acceleration);
 
-        var isMoving = input != Vector2.zero;
-        leftArmAnimator.SetBool(_isMovingHash, isMoving);
-        rightArmAnimator.SetBool(_isMovingHash, isMoving);
-        leftLegAnimator.SetBool(_isMovingHash, isMoving);
-        rightLegAnimator.SetBool(_isMovingHash, isMoving);
-
-        _rigidbody2D.velocity = Vector2.MoveTowards(_rigidbody2D.velocity, input * speed, acceleration * Time.fixedDeltaTime);
+        var isMoving = toPosition != currentPosition;
+        
+        _animators
+            .Where(animator => HasParameter(_isMovingHash, animator))
+            .ToList()
+            .ForEach(animator => animator.SetBool(_isMovingHash, isMoving));
     }
 
-    private void RotateTowardsPlayer(Transform target, float rotationSpeed)
+    private void RotateEnemy()
     {
-        if (player == null)
-            return;
+        if(!target) return;
+        Vector2 targetPosition = target.position;
 
-        var direction = new Vector2(player.position.x - target.position.x, player.position.y - target.position.y);
-        var targetRotation = Quaternion.LookRotation(Vector3.forward, direction);
-        target.rotation = Quaternion.Lerp(target.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
+        RotateTowardsTarget(targetPosition, head, headRotationSpeed);
+        RotateTowardsTarget(targetPosition, arms, armsRotationSpeed);
+        RotateTowardsTarget(targetPosition, legs, legsRotationSpeed);
     }
 }

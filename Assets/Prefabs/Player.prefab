@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 75723614332073801}
   - component: {fileID: 598428460552634036}
   - component: {fileID: 3440099640596708521}
+  - component: {fileID: 6545970609931932223}
   m_Layer: 0
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,6 +107,51 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!61 &6545970609931932223
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322074231142610259}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.0625}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.4375}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1.125}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1870839723190684904
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,7 +165,7 @@ GameObject:
   - component: {fileID: 6517251899838605405}
   m_Layer: 0
   m_Name: Left Arm
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -225,7 +271,7 @@ GameObject:
   - component: {fileID: 4969014085467580622}
   m_Layer: 0
   m_Name: Left Leg
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -429,14 +475,9 @@ MonoBehaviour:
   headRotationSpeed: 5
   armsRotationSpeed: 8
   legsRotationSpeed: 5
-  crosshairOffset: {x: 0, y: 0}
   head: {fileID: 1322074231142610259}
   arms: {fileID: 7430814730972303402}
   legs: {fileID: 9222061079453949093}
-  leftArmAnimator: {fileID: 6517251899838605405}
-  rightArmAnimator: {fileID: 4480478453851596091}
-  leftLegAnimator: {fileID: 4969014085467580622}
-  rightLegAnimator: {fileID: 3213202649172079187}
 --- !u!1 &4251160746721781679
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,7 +491,7 @@ GameObject:
   - component: {fileID: 3213202649172079187}
   m_Layer: 0
   m_Name: Right Leg
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -554,7 +595,7 @@ GameObject:
   - component: {fileID: 8168725974441863467}
   m_Layer: 0
   m_Name: Arms
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -589,7 +630,7 @@ GameObject:
   - component: {fileID: 4480478453851596091}
   m_Layer: 0
   m_Name: Right Arm
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -693,7 +734,7 @@ GameObject:
   - component: {fileID: 6560651891855606393}
   m_Layer: 0
   m_Name: Legs
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -1,148 +1,186 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class SpriteShadow : MonoBehaviour
 {
-    public Vector2 offset;
-    public Vector2 scale;
+    public Vector3 offset;
+    public Vector3 scale;
     public Color shadowColor;
     public int shadowOrder;
     public GameObject prefab;
     public bool mask;
 
-    private GameObject _prefabShadow;
-    private SpriteRenderer[] _prefabSprRnd;
-    private SpriteMask[] _spriteMasks;
+    private List<SpriteRenderer> _shadowSprRnd;
+    private List<SpriteMask> _shadowMasks;
+    private List<Transform> _shadowTransforms;
+    private Dictionary<string, Transform> _parentTransforms;
     public string[] spriteNames;
-    
     public bool[] visibility;
     public bool[] hasMask;
 
     private void Awake()
     {
-        InstantiatePrefab();
-    }
+        _parentTransforms = new Dictionary<string, Transform>();
+        foreach (Transform child in transform)
+        {
+            _parentTransforms[child.name] = child;
+        }
 
-    private void Start()
-    {
-        UpdateVisibility();
-        CreateMasks();
-        RemoveInvisibleObjects();
+        InstantiatePrefab();
     }
 
     private void OnValidate()
     {
         if (!prefab) return;
-        
+
         var tempSprRnd = prefab.GetComponentsInChildren<SpriteRenderer>();
-        
-        spriteNames = new string[tempSprRnd.Length];
-        for (var i = 0; i < tempSprRnd.Length; i++)
-        {
-            spriteNames[i] = tempSprRnd[i].gameObject.name;
-        }
-        
+
+        spriteNames = tempSprRnd.Select(sr => sr.gameObject.name).ToArray();
+
         if (visibility == null || visibility.Length != tempSprRnd.Length)
         {
-            visibility = new bool[tempSprRnd.Length];
-            for (var i = 0; i < tempSprRnd.Length; i++)
-            {
-                visibility[i] = tempSprRnd[i].enabled;
-            }
+            visibility = tempSprRnd.Select(sr => sr.enabled).ToArray();
         }
 
-        if (hasMask != null && hasMask.Length == tempSprRnd.Length) return;
-        hasMask = new bool[tempSprRnd.Length];
-        for (var i = 0; i < tempSprRnd.Length; i++)
+        if (hasMask == null || hasMask.Length != tempSprRnd.Length)
         {
-            hasMask[i] = false;
+            hasMask = new bool[tempSprRnd.Length];
         }
     }
 
     private void InstantiatePrefab()
     {
         if (!prefab) return;
-        
-        _prefabShadow = Instantiate(prefab);
-        _prefabShadow.name = prefab.name + " Shadow";
 
-        _prefabSprRnd = _prefabShadow.GetComponentsInChildren<SpriteRenderer>();
-        _spriteMasks = new SpriteMask[_prefabSprRnd.Length];
+        _shadowSprRnd = new List<SpriteRenderer>();
+        _shadowTransforms = new List<Transform>();
 
-        _prefabShadow.transform.position = new Vector3(transform.position.x + offset.x, transform.position.y + offset.y);
-        _prefabShadow.transform.localScale = new Vector3(scale.x, scale.y);
-
-        foreach (var spriteRenderer in _prefabSprRnd)
+        foreach (Transform prefabChild in prefab.transform)
         {
+            var parentChild = transform.Find(prefabChild.name);
+            var childObject = Instantiate(prefabChild, parentChild);
+
+            if (shadowOrder == 0)
+            {
+                childObject.SetParent(transform);
+                _shadowTransforms.Add(childObject.transform);
+            }
+
+            RemoveComponents(childObject.gameObject);
+
+            _shadowSprRnd.AddRange(childObject.GetComponentsInChildren<SpriteRenderer>());
+
+            childObject.name = prefabChild.name + " Shadow";
+            childObject.tag = "Shadow";
+        }
+
+        foreach (var spriteRenderer in _shadowSprRnd)
+        {
+            spriteRenderer.transform.localScale += scale;
             spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
             spriteRenderer.color = shadowColor;
             spriteRenderer.sortingOrder = shadowOrder;
         }
 
-        switch (prefab.name)
+        UpdateVisibility();
+        CreateMasks();
+    }
+
+    private static void RemoveComponents(GameObject obj)
+    {
+        var components = obj.GetComponents<Component>();
+
+        foreach (var component in components)
         {
-            case "Player":
-                var playerMovementScript = _prefabShadow.GetComponent<PlayerMovement>();
-                if (playerMovementScript != null)
-                {
-                    playerMovementScript.crosshairOffset = new Vector2(offset.x, offset.y);
-                }
-                else
-                {
-                    Debug.LogWarning("PlayerMovement script is not attached to the prefab!");
-                }
-                break;
+            if (component is not SpriteRenderer && 
+                component is not SpriteMask && 
+                component is not Transform && 
+                component is not Animator)
+            {
+                Destroy(component);
+            }
         }
     }
 
     private void UpdateVisibility()
     {
-        if (_prefabSprRnd == null || visibility == null || _prefabSprRnd.Length != visibility.Length) return;
-        for (var i = 0; i < _prefabSprRnd.Length; i++)
+        if (_shadowSprRnd == null || visibility == null || _shadowSprRnd.Count != visibility.Length) return;
+
+        foreach (var spriteRenderer in _shadowSprRnd)
         {
-            _prefabSprRnd[i].enabled = visibility[i];
+            spriteRenderer.gameObject.SetActive(visibility[_shadowSprRnd.IndexOf(spriteRenderer)]);
         }
+
+        RemoveInvisibleObjects();
     }
-    
+
     private void CreateMasks()
     {
-        if (_prefabSprRnd == null || hasMask == null || _prefabSprRnd.Length != hasMask.Length || !mask) return;
-        
-        for (var i = 0; i < _prefabSprRnd.Length; i++)
+        if (_shadowSprRnd == null || hasMask == null || _shadowSprRnd.Count != hasMask.Length || !mask) return;
+
+        _shadowMasks = new List<SpriteMask>();
+
+        for (var i = 0; i < _shadowSprRnd.Count; i++)
         {
-            if (!hasMask[i]) return;
-            _spriteMasks[i] = _prefabSprRnd[i].gameObject.AddComponent<SpriteMask>();
-            _prefabSprRnd[i].maskInteraction = SpriteMaskInteraction.None;
+            if (hasMask[i])
+            {
+                var spriteMask = _shadowSprRnd[i].gameObject.AddComponent<SpriteMask>();
+                _shadowMasks.Add(spriteMask);
+                _shadowSprRnd[i].maskInteraction = SpriteMaskInteraction.None;
+            }
         }
     }
-    
+
     private void UpdateMasks()
     {
-        if (_prefabSprRnd == null || _spriteMasks == null || _prefabSprRnd.Length != _spriteMasks.Length || !mask) return;
+        if (_shadowMasks == null) return;
 
-        for (var i = 0; i < _spriteMasks.Length; i++)
+        for (var i = 0; i < _shadowMasks.Count; i++)
         {
-            if (_spriteMasks[i])
+            if (_shadowMasks[i])
             {
-                _spriteMasks[i].sprite = _prefabSprRnd[i].sprite;
+                _shadowMasks[i].sprite = _shadowSprRnd[i].sprite;
             }
         }
     }
-    
+
     private void RemoveInvisibleObjects()
     {
-        if (_prefabSprRnd == null) return;
+        if (_shadowSprRnd == null) return;
 
-        foreach (var spriteRenderer in _prefabSprRnd)
+        var invisibleObjects = _shadowSprRnd.Where(sr => !sr.gameObject.activeSelf).ToList();
+
+        foreach (var spriteRenderer in invisibleObjects)
         {
-            if (!spriteRenderer.enabled)
-            {
-                Destroy(spriteRenderer.gameObject);
-            }
+            Destroy(spriteRenderer.gameObject);
         }
     }
 
-    private void LateUpdate()
+    private void UpdateTransforms()
+    {
+        foreach (var transformChild in _shadowTransforms)
+        {
+            var parentName = transformChild.name.Replace(" Shadow", "");
+            
+            if (!_parentTransforms.TryGetValue(parentName, out var parentChild))
+            {
+                continue;
+            }
+            
+            transformChild.position = parentChild.position + offset;
+            transformChild.rotation = parentChild.rotation;
+            transformChild.localScale = parentChild.localScale + scale;
+        }
+    }
+
+    private void Update()
     {
         UpdateMasks();
+
+        if (shadowOrder == 0)
+        {
+            UpdateTransforms();
+        }
     }
 }
