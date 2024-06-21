@@ -2205,10 +2205,6 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5869639480477037480, guid: 14c853d7f497b2e4f82361a8f6d60207, type: 3}
-      propertyPath: m_BodyType
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6566487571948314303, guid: 14c853d7f497b2e4f82361a8f6d60207, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1

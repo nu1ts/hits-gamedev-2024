@@ -184,17 +184,13 @@ MonoBehaviour:
   speed: 15
   acceleration: 100
   stoppingDistance: 3
-  player: {fileID: 0}
-  head: {fileID: 4207289274748489356}
-  arms: {fileID: 1681635062597113552}
-  legs: {fileID: 8304422581104299711}
   headRotationSpeed: 5
   armsRotationSpeed: 8
   legsRotationSpeed: 5
-  leftArmAnimator: {fileID: 8747100885050124660}
-  rightArmAnimator: {fileID: 4273229254803707691}
-  leftLegAnimator: {fileID: 2168051224111011146}
-  rightLegAnimator: {fileID: 5335642819681021867}
+  target: {fileID: 0}
+  head: {fileID: 6950424938936139866}
+  arms: {fileID: 7311601098792123856}
+  legs: {fileID: 2781304706044458326}
 --- !u!1 &2747111616019704027
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,7 +555,6 @@ GameObject:
   - component: {fileID: 5035098227499278519}
   - component: {fileID: 709098041287902167}
   - component: {fileID: 3086551884027735556}
-  - component: {fileID: 4083350876687618477}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -716,19 +711,6 @@ MonoBehaviour:
   bloodParticleSystem: {fileID: 1104177809300191407, guid: 81507a573c8dd264bb39a01809a6f1ea, type: 3}
   deadBodyPrefab: {fileID: 8177629285040505664, guid: e84cfd43050ffa0459366d988ec85996, type: 3}
   knockbackDuration: 0.2
---- !u!114 &4083350876687618477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6950424938936139866}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4e33fdcd837d9a43b8e9635f36b503e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: {fileID: 3086551884027735556}
 --- !u!1 &7311601098792123856
 GameObject:
   m_ObjectHideFlags: 0

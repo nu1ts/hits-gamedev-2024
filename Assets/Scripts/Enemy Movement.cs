@@ -12,9 +12,9 @@ public class EnemyMovement : MoveController
     public float legsRotationSpeed = 5f;
 
     public Transform target;
-    public Transform head;
-    public Transform arms;
-    public Transform legs;
+    public GameObject head;
+    public GameObject arms;
+    public GameObject legs;
 
     private int _isMovingHash;
     private List<Animator> _animators;
@@ -73,8 +73,8 @@ public class EnemyMovement : MoveController
         if(!target) return;
         Vector2 targetPosition = target.position;
 
-        RotateTowardsTarget(targetPosition, head, headRotationSpeed);
-        RotateTowardsTarget(targetPosition, arms, armsRotationSpeed);
-        RotateTowardsTarget(targetPosition, legs, legsRotationSpeed);
+        RotateTowardsTarget(targetPosition, head.transform, headRotationSpeed);
+        RotateTowardsTarget(targetPosition, arms.transform, armsRotationSpeed);
+        RotateTowardsTarget(targetPosition, legs.transform, legsRotationSpeed);
     }
 }
