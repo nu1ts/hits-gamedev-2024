@@ -24,7 +24,7 @@ public class HealthController : MonoBehaviour
         Vector2 knockbackDirection = -transform.up;
         StartCoroutine(ApplyKnockback(knockbackDirection, knockbackForce));
 
-        Debug.Log($"{gameObject.name} получил урон: {damage}. Текущие HP: {currentHealth}");
+        //Debug.Log($"{gameObject.name} получил урон: {damage}. Текущие HP: {currentHealth}");
 
         // Вызов эффекта крови
         if (currentHealth > 0)

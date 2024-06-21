@@ -11,8 +11,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Enemy
+  - Weapon
   - 
   - 
   - 
@@ -41,6 +41,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Floor
+    uniqueID: 3588028451
+    locked: 0
   - name: Blood
     uniqueID: 1890328277
+    locked: 0
+  - name: Weapon
+    uniqueID: 4210974959
+    locked: 0
+  - name: Arms
+    uniqueID: 3125345119
+    locked: 0
+  - name: Head
+    uniqueID: 2144571283
     locked: 0

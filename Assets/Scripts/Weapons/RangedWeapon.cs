@@ -1,0 +1,121 @@
+using System.Collections;
+using UnityEngine;
+
+public class RangedWeapon : BasicWeapon
+{
+    public GameObject projectilePrefab;
+    public Transform firePoint;
+    public float projectileSpeed;
+
+    public int maxAmmo = 30;            // Максимальное количество патронов в магазине
+    public float reloadTime = 1.5f;     // Время перезарядки
+    public float recoilForce = 10f;     // Сила отдачи
+    public float recoilDuration = 0.1f; // Длительность отдачи
+
+    private int currentAmmo;            // Текущее количество патронов в магазине
+    private bool isReloading;
+
+    private Rigidbody2D playerRb;
+    private AmmoCounterUI ammoCounterUI;
+
+    private void Start()
+    {
+        ammoCounterUI = FindObjectOfType<AmmoCounterUI>();
+    }
+
+    private void Awake()
+    {
+        currentAmmo = maxAmmo;
+        playerRb = GetComponentInParent<Rigidbody2D>();
+        UpdateAmmoUI();
+    }
+
+    public override void UseWeapon()
+    {
+        if (isReloading || isCooldown)
+        {
+            return;
+        }
+
+        if (currentAmmo <= 0)
+        {
+            StartCoroutine(Reload());
+            return;
+        }
+
+        Shoot();
+        currentAmmo--;
+        UpdateAmmoUI();
+        StartCoroutine(Cooldown());
+    }
+
+    public void UpdateAmmoUI()
+    {
+        if (ammoCounterUI != null)
+        {
+            ammoCounterUI.UpdateAmmoCount(currentAmmo, maxAmmo);
+        }
+    }
+
+    protected virtual void Shoot()
+    {
+        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+        Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+        rb.velocity = firePoint.up * projectileSpeed;
+
+        ApplyRecoil();
+    }
+
+    //Первая реализация Отдачи (как в HealthController)
+    protected IEnumerator ApplyRecoil1()
+    {
+        Vector2 recoilDirection = -firePoint.up * recoilForce;
+
+        float elapsedTime = 0;
+        while (elapsedTime < recoilDuration)
+        {
+            playerRb.MovePosition(playerRb.position + recoilDirection * Time.fixedDeltaTime);
+            elapsedTime += Time.fixedDeltaTime;
+            yield return new WaitForFixedUpdate();
+        }
+    }
+
+    //Вторая реализация Отдачи
+    protected void ApplyRecoil()
+    {
+        Vector2 recoilDirection = -firePoint.up * recoilForce;
+
+        if (playerRb != null)
+        {
+            // Применяем силу отдачи
+            playerRb.velocity = recoilDirection;
+            StartCoroutine(StopRecoil());
+        }
+    }
+
+    private IEnumerator StopRecoil()
+    {
+        // Ждем немного времени
+        yield return new WaitForSeconds(0.1f);
+
+        // Останавливаем движение игрока
+        if (playerRb != null)
+        {
+            playerRb.velocity = Vector2.zero;
+        }
+    }
+
+    private IEnumerator Reload()
+    {
+        if (isReloading)
+            yield break;
+
+        isReloading = true;
+
+        yield return new WaitForSeconds(reloadTime);
+
+        currentAmmo = maxAmmo;
+        UpdateAmmoUI();
+        isReloading = false;
+    }
+}
