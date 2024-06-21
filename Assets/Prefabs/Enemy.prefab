@@ -555,6 +555,7 @@ GameObject:
   - component: {fileID: 5035098227499278519}
   - component: {fileID: 709098041287902167}
   - component: {fileID: 3086551884027735556}
+  - component: {fileID: 6439055101025789769}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -711,6 +712,19 @@ MonoBehaviour:
   bloodParticleSystem: {fileID: 1104177809300191407, guid: 81507a573c8dd264bb39a01809a6f1ea, type: 3}
   deadBodyPrefab: {fileID: 8177629285040505664, guid: e84cfd43050ffa0459366d988ec85996, type: 3}
   knockbackDuration: 0.2
+--- !u!114 &6439055101025789769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6950424938936139866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4e33fdcd837d9a43b8e9635f36b503e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 3086551884027735556}
 --- !u!1 &7311601098792123856
 GameObject:
   m_ObjectHideFlags: 0
