@@ -14,9 +14,11 @@ public class Grenade : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    public float cameraShakeDuration = 0.1f;
+    public float cameraShakeMagnitude = 0.2f;
+
     private void Awake()
     {
-
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.right * speed;
 
@@ -40,6 +42,7 @@ public class Grenade : MonoBehaviour
 
         hasExploded = true;
 
+        
         // Включаем коллайдер для обнаружения врагов
         StartCoroutine(EnableColliderAndDamage());
     }
@@ -51,17 +54,23 @@ public class Grenade : MonoBehaviour
         explosionCollider.enabled = true;
 
         // Получаем всех врагов в зоне действия
-        Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(explosionCollider.bounds.center, explosionCollider.bounds.size, 0f, enemyLayers);
+        Collider2D[] hitObjects = Physics2D.OverlapBoxAll(explosionCollider.bounds.center, explosionCollider.bounds.size, 0f, enemyLayers);
 
-        foreach (Collider2D enemy in hitEnemies)
+        foreach (Collider2D hit in hitObjects)
         {
-            enemy.GetComponent<HealthController>()?.TakeDamage(damage, 0);
+            IDamageable damageable = hit.GetComponent<IDamageable>();
+            if (damageable != null)
+            {
+                damageable.TakeDamage(damage, 0f);
+            }
         }
 
         if (explosionPrefab != null)
         {
             Instantiate(explosionPrefab, transform.position, Quaternion.Euler(0, 0, 0));
         }
+
+        GlobalEvents.TriggerCameraShake(cameraShakeDuration, cameraShakeMagnitude);
 
         Destroy(gameObject);
     }

@@ -133,6 +133,7 @@ MonoBehaviour:
   weaponName: Minigun
   cooldownTime: 0.1
   damage: 10
+  shakeForce: 0
   fireMode: 1
   projectilePrefab: {fileID: 881813572228134020, guid: 3a5b59416cb86fe4b8f8c87b49a96596, type: 3}
   firePoint: {fileID: 7803035770425109101}
@@ -141,6 +142,8 @@ MonoBehaviour:
   reloadTime: 5
   recoilForce: 10
   recoilDuration: 0.1
+  cameraShakeDuration: 0.2
+  cameraShakeMagnitude: 0.05
 --- !u!1 &5251494264376429185
 GameObject:
   m_ObjectHideFlags: 0

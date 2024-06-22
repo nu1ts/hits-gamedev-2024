@@ -28,6 +28,8 @@ public class Shotgun : RangedWeapon
         //     obj.transform.SetParent(transform); // Родитель для порядка
         // }
 
+        playerWeaponController.CameraShake(cameraShakeDuration, cameraShakeMagnitude);
+
         ApplyRecoil();
     }
 }

@@ -16,7 +16,8 @@ public class ThrowableWeapon : BasicWeapon
 
     private void Throw()
     {
-        GameObject throwable = Instantiate(projectilePrefab, throwPoint.position, throwPoint.rotation);
+        Instantiate(projectilePrefab, throwPoint.position, throwPoint.rotation);
+        
         //Rigidbody2D rb = throwable.GetComponent<Rigidbody2D>();
         //rb.AddForce(throwPoint.up * throwForce, ForceMode2D.Impulse);
     }

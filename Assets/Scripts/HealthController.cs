@@ -1,13 +1,13 @@
 using UnityEngine;
 using System.Collections;
 
-public class HealthController : MonoBehaviour
+public class HealthController : MonoBehaviour, IDamageable
 {
     [SerializeField] private int maxHealth = 100;
     //[SerializeField] private GameObject bloodEffectPrefab; // Префаб эффекта крови
     [SerializeField] private ParticleSystem bloodParticleSystem;
     [SerializeField] private GameObject deadBodyPrefab; // Префаб трупа
-     [SerializeField] private float knockbackDuration = 0.3f;
+    [SerializeField] private float knockbackDuration = 0.3f;
     private int currentHealth;
     private Rigidbody2D rb;
 

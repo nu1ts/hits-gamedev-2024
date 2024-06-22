@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -15,7 +16,14 @@ public abstract class BasicWeapon : MonoBehaviour
     protected bool isCooldown;
     public FireMode fireMode = FireMode.Automatic;
 
+    protected PlayerWeaponController playerWeaponController;
+
     public abstract void UseWeapon();
+
+    public void SetPlayerWeaponController(PlayerWeaponController controller)
+    {
+        playerWeaponController = controller;
+    }
 
     protected IEnumerator Cooldown()
     {

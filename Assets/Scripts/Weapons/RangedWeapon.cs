@@ -15,6 +15,9 @@ public class RangedWeapon : BasicWeapon
     private int currentAmmo;            // Текущее количество патронов в магазине
     private bool isReloading;
 
+    public float cameraShakeDuration = 0.1f; // Длительность тряски камеры
+    public float cameraShakeMagnitude = 0.2f;
+
     private Rigidbody2D playerRb;
     private AmmoCounterUI ammoCounterUI;
 
@@ -64,6 +67,8 @@ public class RangedWeapon : BasicWeapon
         rb.velocity = firePoint.up * projectileSpeed;
 
         ApplyRecoil();
+
+        playerWeaponController.CameraShake(cameraShakeDuration, cameraShakeMagnitude);
     }
 
     //Первая реализация Отдачи (как в HealthController)

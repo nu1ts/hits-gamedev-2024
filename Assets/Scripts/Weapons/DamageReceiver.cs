@@ -2,13 +2,18 @@ using UnityEngine;
 
 public class DamageReceiver : MonoBehaviour
 {
-    [SerializeField] private HealthController health; // Ссылка на компонент здоровья корневого объекта
+    private IDamageable damageable; // Ссылка на компонент здоровья корневого объекта
+
+    private void Awake()
+    {
+        damageable = GetComponentInParent<IDamageable>();
+    }
 
     public void TakeDamage(int damage, float knockbackForce)
     {
-        if (health != null)
+        if (damageable != null)
         {
-            health.TakeDamage(damage, knockbackForce);
+            damageable.TakeDamage(damage, knockbackForce);
         }
         else
         {

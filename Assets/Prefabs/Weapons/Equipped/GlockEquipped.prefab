@@ -132,6 +132,7 @@ MonoBehaviour:
   weaponName: Glock
   cooldownTime: 0.5
   damage: 10
+  shakeForce: 0
   fireMode: 0
   projectilePrefab: {fileID: 881813572228134020, guid: 3a5b59416cb86fe4b8f8c87b49a96596, type: 3}
   firePoint: {fileID: 5569468630328614053}
@@ -140,3 +141,5 @@ MonoBehaviour:
   reloadTime: 1.5
   recoilForce: 10
   recoilDuration: 0.1
+  cameraShakeDuration: 0.1
+  cameraShakeMagnitude: 0.01

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -11,10 +12,23 @@ public class PlayerWeaponController : MonoBehaviour
     private Animator rightHandAnimator;
     public AmmoCounterUI ammoCounterUI;
 
+    private CameraController _cameraController;
+
     private void Start()
     {
+        _cameraController = FindObjectOfType<CameraController>();
         rightHandAnimator = rightHandPoint.GetComponent<Animator>();
         CheckRightArmAnimator();
+    }
+
+     private void OnEnable()
+    {
+        GlobalEvents.OnExplosion += CameraShake;
+    }
+
+    private void OnDisable()
+    {
+        GlobalEvents.OnExplosion -= CameraShake;
     }
 
     private void Update()
@@ -52,6 +66,10 @@ public class PlayerWeaponController : MonoBehaviour
             if (!currentWeapon.IsWeaponOnCooldown())
             {
                 currentWeapon.UseWeapon();
+                // if (_cameraController != null)
+                // {
+                //     TriggerCameraShake();
+                // }
             }
             yield return null;
         }
@@ -77,6 +95,8 @@ public class PlayerWeaponController : MonoBehaviour
             ammoCounterUI.enabled = false;
         }
 
+        currentWeapon.SetPlayerWeaponController(this);
+
         CheckRightArmAnimator();
     }
 
@@ -96,5 +116,10 @@ public class PlayerWeaponController : MonoBehaviour
                 rightHandAnimator.enabled = true;
             }
         }
+    }
+
+    public void CameraShake(float cameraShakeDuration, float cameraShakeMagnitude)
+    {
+        _cameraController.ShakeCamera(cameraShakeDuration, cameraShakeMagnitude);
     }
 }
