@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Shadow
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -15,8 +16,8 @@ TagManager:
   - UI
   - Enemy
   - Weapon
-  - 
-  - 
+  - Wall
+  - Bullet
   - 
   - 
   - 
@@ -40,11 +41,11 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Floor
+    uniqueID: 2359321067
+    locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Floor
-    uniqueID: 3588028451
     locked: 0
   - name: Blood
     uniqueID: 1890328277
@@ -57,4 +58,10 @@ TagManager:
     locked: 0
   - name: Head
     uniqueID: 2144571283
+    locked: 0
+  - name: Wall
+    uniqueID: 441308357
+    locked: 0
+  - name: Sky
+    uniqueID: 4073222575
     locked: 0

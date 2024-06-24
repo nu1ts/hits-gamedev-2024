@@ -8,6 +8,7 @@ public class MoveController : MonoBehaviour
     protected virtual void Awake()
     {
         Rigidbody2D = GetComponent<Rigidbody2D>();
+        Rigidbody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
     protected void MoveFromTo(Vector2 from, Vector2 to, float speed, float acceleration)

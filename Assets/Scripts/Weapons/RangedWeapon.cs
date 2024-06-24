@@ -21,9 +21,18 @@ public class RangedWeapon : BasicWeapon
     private Rigidbody2D playerRb;
     private AmmoCounterUI ammoCounterUI;
 
+    public GameObject muzzleFlashPrefab;
+    private Animator muzzleFlashAnimator;
+
     private void Start()
     {
         ammoCounterUI = FindObjectOfType<AmmoCounterUI>();
+        
+        if (muzzleFlashPrefab != null && firePoint != null)
+        {
+            GameObject muzzleFlashInstance = Instantiate(muzzleFlashPrefab, firePoint.position, firePoint.rotation, firePoint);
+            muzzleFlashAnimator = muzzleFlashInstance.GetComponent<Animator>();
+        }
     }
 
     private void Awake()
@@ -69,6 +78,11 @@ public class RangedWeapon : BasicWeapon
         ApplyRecoil();
 
         playerWeaponController.CameraShake(cameraShakeDuration, cameraShakeMagnitude);
+
+        if (muzzleFlashAnimator != null)
+        {
+            muzzleFlashAnimator.SetTrigger("Shoot");
+        }
     }
 
     //Первая реализация Отдачи (как в HealthController)
