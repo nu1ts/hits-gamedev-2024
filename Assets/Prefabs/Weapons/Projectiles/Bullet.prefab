@@ -278,3 +278,6 @@ MonoBehaviour:
   collisionLayers:
     serializedVersion: 2
     m_Bits: 320
+  teleportLayer:
+    serializedVersion: 2
+    m_Bits: 2048

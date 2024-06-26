@@ -22,7 +22,7 @@ public class RangedWeapon : BasicWeapon
     private AmmoCounterUI ammoCounterUI;
 
     public GameObject muzzleFlashPrefab;
-    private Animator muzzleFlashAnimator;
+    protected Animator muzzleFlashAnimator;
 
     private void Start()
     {

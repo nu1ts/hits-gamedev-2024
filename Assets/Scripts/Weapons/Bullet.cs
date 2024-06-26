@@ -12,6 +12,7 @@ public class Bullet : MonoBehaviour
     private bool hasDealtDamage = false;
 
     public LayerMask collisionLayers;
+    public LayerMask teleportLayer;
 
     private void Start()
     {
@@ -32,7 +33,17 @@ public class Bullet : MonoBehaviour
 
         if (hit.collider != null)
         {
-            if (hit.collider.CompareTag("Wall"))
+            if (((1 << hit.collider.gameObject.layer) & teleportLayer) != 0)
+            {
+                // Обрабатываем телепортацию
+                Teleport teleport = hit.collider.GetComponent<Teleport>();
+                if (teleport != null && teleport.linkedTeleport != null)
+                {
+                    transform.position = teleport.linkedTeleport.transform.position;
+                    previousPosition = rb.position;
+                }
+            }
+            else if (hit.collider.CompareTag("Wall"))
             {
                 Vector2 reflectedDirection = Vector2.Reflect(rb.velocity.normalized, hit.normal);
 

@@ -136,7 +136,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -83992337
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 172fcd13837c38349a697cae16ad4fae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -172,5 +172,8 @@ MonoBehaviour:
   reloadTime: 3
   recoilForce: 20
   recoilDuration: 0.2
+  cameraShakeDuration: 0.1
+  cameraShakeMagnitude: 0.2
+  muzzleFlashPrefab: {fileID: 7319488933583184703, guid: c34d63cf58ad7ff428be7b7781e7c3ac, type: 3}
   pelletCount: 4
   spreadAngle: 25

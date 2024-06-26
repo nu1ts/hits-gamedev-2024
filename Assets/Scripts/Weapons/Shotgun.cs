@@ -28,6 +28,11 @@ public class Shotgun : RangedWeapon
         //     obj.transform.SetParent(transform); // Родитель для порядка
         // }
 
+        if (muzzleFlashAnimator != null)
+        {
+            muzzleFlashAnimator.SetTrigger("Shoot");
+        }
+
         playerWeaponController.CameraShake(cameraShakeDuration, cameraShakeMagnitude);
 
         ApplyRecoil();

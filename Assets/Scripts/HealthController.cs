@@ -11,10 +11,17 @@ public class HealthController : MonoBehaviour, IDamageable
     private int currentHealth;
     private Rigidbody2D rb;
 
+    public HealthBarUI healthBarUI;
+
     private void Start()
     {
         currentHealth = maxHealth;
         rb = transform.root.GetComponent<Rigidbody2D>();
+
+        if (healthBarUI != null)
+        {
+            healthBarUI.Initialize(maxHealth);
+        }
     }
 
     public void TakeDamage(int damage, float knockbackForce)
@@ -25,6 +32,11 @@ public class HealthController : MonoBehaviour, IDamageable
         StartCoroutine(ApplyKnockback(knockbackDirection, knockbackForce));
 
         //Debug.Log($"{gameObject.name} получил урон: {damage}. Текущие HP: {currentHealth}");
+
+        if (healthBarUI != null)
+        {
+            healthBarUI.UpdateHealth(currentHealth);
+        }
 
         // Вызов эффекта крови
         if (currentHealth > 0)
@@ -82,7 +94,7 @@ public class HealthController : MonoBehaviour, IDamageable
         enemyCorpseController.Slide(slideDirection);
         yield return null; // Даем возможность корутине запуститься
     }
-    
+
     public void Heal(int amount)
     {
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);

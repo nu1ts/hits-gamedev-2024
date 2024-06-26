@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -20,6 +21,8 @@ public class PlayerMovement : MoveController
     private int _isMovingHash;
     private List<Animator> _animators;
 
+    public PlayerDashController dashController;
+
     protected override void Awake()
     {
         base.Awake();
@@ -34,12 +37,15 @@ public class PlayerMovement : MoveController
 
     private void FixedUpdate()
     {
-        MovePlayer();
+        if (!dashController._isDashing)
+        {
+            MovePlayer();
 
-        var mousePosition = _cam.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-        RotateTowardsTarget(mousePosition, head.transform, headRotationSpeed);
-        RotateTowardsTarget(mousePosition, arms.transform, armsRotationSpeed);
-        RotateTowardsTarget(mousePosition, legs.transform, legsRotationSpeed);
+            var mousePosition = _cam.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            RotateTowardsTarget(mousePosition, head.transform, headRotationSpeed);
+            RotateTowardsTarget(mousePosition, arms.transform, armsRotationSpeed);
+            RotateTowardsTarget(mousePosition, legs.transform, legsRotationSpeed);
+        }
     }
 
     private void MovePlayer()
@@ -48,7 +54,7 @@ public class PlayerMovement : MoveController
 
         var targetPosition = (Vector2)transform.position + _input;
         MoveFromTo(transform.position, targetPosition, speed, acceleration);
-        
+
         _animators
             .Where(animator => HasParameter(_isMovingHash, animator))
             .ToList()
@@ -58,5 +64,13 @@ public class PlayerMovement : MoveController
     private void OnMovement(InputValue inputValue)
     {
         _input = inputValue.Get<Vector2>();
+    }
+
+private void OnDash()
+    {
+        if (dashController != null && dashController.CanDash())
+        {
+            dashController.StartDash(_input.normalized);
+        }
     }
 }

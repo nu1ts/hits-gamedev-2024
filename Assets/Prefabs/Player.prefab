@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 598428460552634036}
   - component: {fileID: 3440099640596708521}
   - component: {fileID: 6545970609931932223}
+  - component: {fileID: 4072835138144046409}
+  - component: {fileID: 2814546211851924373}
   m_Layer: 0
   m_Name: Head
   m_TagString: Player
@@ -152,6 +154,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &4072835138144046409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322074231142610259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd6561d74cd2fd34da7f5db9355d8436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  bloodParticleSystem: {fileID: 1104177809300191407, guid: 81507a573c8dd264bb39a01809a6f1ea, type: 3}
+  deadBodyPrefab: {fileID: 8177629285040505664, guid: e84cfd43050ffa0459366d988ec85996, type: 3}
+  knockbackDuration: 0.3
+  healthBarUI: {fileID: 0}
+--- !u!114 &2814546211851924373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322074231142610259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6920f80e81d63b844a52a59d9c2d6ad8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthFillImage: {fileID: 0}
 --- !u!1 &1870839723190684904
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,6 +408,9 @@ GameObject:
   - component: {fileID: 8171992032106665069}
   - component: {fileID: 5869639480477037480}
   - component: {fileID: 1933525760437506030}
+  - component: {fileID: 8995558212296926919}
+  - component: {fileID: 3429150940986255890}
+  - component: {fileID: 3218496642454876776}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -478,6 +513,55 @@ MonoBehaviour:
   head: {fileID: 1322074231142610259}
   arms: {fileID: 7430814730972303402}
   legs: {fileID: 9222061079453949093}
+  dashController: {fileID: 0}
+--- !u!114 &8995558212296926919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3882934171400280983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd7f21455018c5f4d93774e637c95803, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crystals: 0
+  crystalText: {fileID: 0}
+--- !u!114 &3429150940986255890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3882934171400280983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3612f6a9bc28cbd4ebc1bd274f4eb7aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashBarUI: {fileID: 0}
+  dashCooldown: 1
+  dashSpeed: 60
+  dashDuration: 0.2
+  timeScaleDuringDash: 0.5
+  ghostInterval: 0.1
+  ghostLifetime: 0.5
+  initialGhostAlpha: 0.1
+  _isDashing: 0
+--- !u!114 &3218496642454876776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3882934171400280983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf92426f1ed6814ea6dc5adbf91e726, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashFillImage: {fileID: 0}
 --- !u!1 &4251160746721781679
 GameObject:
   m_ObjectHideFlags: 0
