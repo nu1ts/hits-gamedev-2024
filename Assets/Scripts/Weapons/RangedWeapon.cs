@@ -73,6 +73,7 @@ public class RangedWeapon : BasicWeapon
 
     protected virtual void Shoot()
     {
+        Debug.Log("SHOOT");
         // Генерируем случайный угол в диапазоне [-spreadAngle/2, spreadAngle/2]
         float randomAngle = Random.Range(-spreadAngle / 2, spreadAngle / 2);
         

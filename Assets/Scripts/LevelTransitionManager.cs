@@ -41,7 +41,7 @@ public class LevelTransitionManager : MonoBehaviour
 
     public IEnumerator KillAll()
     {
-        levelText.text = "KILL ALL BEFORE";
+        levelText.text = "KILL ALL BEFORE EXIT";
 
         if (transitionAnimator != null)
         {

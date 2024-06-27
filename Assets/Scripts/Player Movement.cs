@@ -53,7 +53,7 @@ public class PlayerMovement : MoveController
         var isMoving = _input != Vector2.zero;
 
         var targetPosition = (Vector2)transform.position + _input;
-        MoveFromTo(transform.position, targetPosition, speed, acceleration);
+        MoveFromTo(transform.position, targetPosition, speed / Time.timeScale, acceleration);
 
         _animators
             .Where(animator => HasParameter(_isMovingHash, animator))

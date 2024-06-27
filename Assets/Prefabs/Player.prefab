@@ -167,7 +167,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  bloodParticleSystem: {fileID: 1104177809300191407, guid: 81507a573c8dd264bb39a01809a6f1ea, type: 3}
+  bloodParticleSystemWall: {fileID: 0}
+  bloodParticleSystemFloor: {fileID: 0}
   deadBodyPrefab: {fileID: 8177629285040505664, guid: e84cfd43050ffa0459366d988ec85996, type: 3}
   knockbackDuration: 0.3
   healthBarUI: {fileID: 0}
@@ -491,7 +492,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!114 &1933525760437506030
 MonoBehaviour:
@@ -542,11 +543,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dashBarUI: {fileID: 3218496642454876776}
   dashCooldown: 3
-  dashSpeed: 50
-  dashDuration: 0.2
+  dashSpeed: 80
+  dashDuration: 0.1
   timeScaleDuringDash: 0.3
   ghostInterval: 0.02
-  ghostLifetime: 0.3
+  ghostLifetime: 0.1
   initialGhostAlpha: 0.5
   _isDashing: 0
   head: {fileID: 1322074231142610259}

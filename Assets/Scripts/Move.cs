@@ -14,7 +14,7 @@ public class MoveController : MonoBehaviour
     protected void MoveFromTo(Vector2 from, Vector2 to, float speed, float acceleration)
     {
         var direction = (to - from).normalized;
-        Rigidbody2D.velocity = Vector2.MoveTowards(Rigidbody2D.velocity, direction * speed, acceleration * Time.fixedDeltaTime);
+        Rigidbody2D.velocity = Vector2.MoveTowards(Rigidbody2D.velocity, direction * speed, acceleration * Time.fixedDeltaTime / Time.timeScale);
     }
 
     protected static void RotateTowardsTarget(Vector2 rotationTarget, Transform lookTarget, float rotationSpeed)
@@ -24,7 +24,7 @@ public class MoveController : MonoBehaviour
         var direction = new Vector2(rotationTarget.x - lookTarget.position.x, rotationTarget.y - lookTarget.position.y);
 
         var targetRotation = Quaternion.LookRotation(Vector3.forward, -direction);
-        lookTarget.rotation = Quaternion.Lerp(lookTarget.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
+        lookTarget.rotation = Quaternion.Lerp(lookTarget.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime / Time.timeScale);
     }
 
     
