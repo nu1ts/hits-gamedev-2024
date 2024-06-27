@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8137810507645358680}
   - component: {fileID: 9217343166575117927}
   - component: {fileID: 5335642819681021867}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Right Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,8 @@ GameObject:
   - component: {fileID: 4147463363050868999}
   - component: {fileID: 6426201301237238925}
   - component: {fileID: 8888808837219504847}
-  m_Layer: 0
+  - component: {fileID: 3174662161627610188}
+  m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -140,6 +141,7 @@ Transform:
   - {fileID: 4207289274748489356}
   - {fileID: 1681635062597113552}
   - {fileID: 8304422581104299711}
+  - {fileID: 8329246847743234306}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &6426201301237238925
@@ -191,6 +193,51 @@ MonoBehaviour:
   head: {fileID: 6950424938936139866}
   arms: {fileID: 7311601098792123856}
   legs: {fileID: 2781304706044458326}
+--- !u!114 &3174662161627610188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094921051328607732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f534f1aed5cc72459b5f304218bf1e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &2384327543414637656
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8329246847743234306}
+  m_Layer: 6
+  m_Name: Blood
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8329246847743234306
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2384327543414637656}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2291948706299063353}
+  - {fileID: 5623086533443252774}
+  m_Father: {fileID: 4147463363050868999}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2747111616019704027
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,7 +249,7 @@ GameObject:
   - component: {fileID: 1888897469320275069}
   - component: {fileID: 5199310579739341379}
   - component: {fileID: 8747100885050124660}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Left Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,7 +353,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8304422581104299711}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Legs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,7 +388,7 @@ GameObject:
   - component: {fileID: 1055778424330540607}
   - component: {fileID: 3385522273976722170}
   - component: {fileID: 2168051224111011146}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Left Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -447,7 +494,7 @@ GameObject:
   - component: {fileID: 4012705615690469559}
   - component: {fileID: 1083131500617653071}
   - component: {fileID: 4273229254803707691}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Right Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -556,7 +603,7 @@ GameObject:
   - component: {fileID: 709098041287902167}
   - component: {fileID: 3086551884027735556}
   - component: {fileID: 6439055101025789769}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -709,9 +756,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 20
-  bloodParticleSystem: {fileID: 1104177809300191407, guid: 81507a573c8dd264bb39a01809a6f1ea, type: 3}
+  bloodParticleSystemWall: {fileID: 3941045682990293094}
+  bloodParticleSystemFloor: {fileID: 7455423823057059449}
   deadBodyPrefab: {fileID: 8177629285040505664, guid: e84cfd43050ffa0459366d988ec85996, type: 3}
   knockbackDuration: 0.2
+  healthBarUI: {fileID: 0}
 --- !u!114 &6439055101025789769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -724,7 +773,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4e33fdcd837d9a43b8e9635f36b503e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: {fileID: 3086551884027735556}
 --- !u!1 &7311601098792123856
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,7 +782,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1681635062597113552}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -758,3 +806,145 @@ Transform:
   - {fileID: 4012705615690469559}
   m_Father: {fileID: 4147463363050868999}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &657557427978249366
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8329246847743234306}
+    m_Modifications:
+    - target: {fileID: 5127677581855479472, guid: e8f37d71e7fac3c4fa5f0e4b89b0de2e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5127677581855479472, guid: e8f37d71e7fac3c4fa5f0e4b89b0de2e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5127677581855479472, guid: e8f37d71e7fac3c4fa5f0e4b89b0de2e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5127677581855479472, guid: e8f37d71e7fac3c4fa5f0e4b89b0de2e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.95881975
+      objectReference: {fileID: 0}
+    - target: {fileID: 5127677581855479472, guid: e8f37d71e7fac3c4fa5f0e4b89b0de2e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5127677581855479472, guid: e8f37d71e7fac3c4fa5f0e4b89b0de2e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5127677581855479472, guid: e8f37d71e7fac3c4fa5f0e4b89b0de2e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.28401542
+      objectReference: {fileID: 0}
+    - target: {fileID: 5127677581855479472, guid: e8f37d71e7fac3c4fa5f0e4b89b0de2e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5127677581855479472, guid: e8f37d71e7fac3c4fa5f0e4b89b0de2e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5127677581855479472, guid: e8f37d71e7fac3c4fa5f0e4b89b0de2e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -33
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704975169192728227, guid: e8f37d71e7fac3c4fa5f0e4b89b0de2e, type: 3}
+      propertyPath: m_Name
+      value: Blood Floor Particle System
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704975169192728227, guid: e8f37d71e7fac3c4fa5f0e4b89b0de2e, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e8f37d71e7fac3c4fa5f0e4b89b0de2e, type: 3}
+--- !u!4 &5623086533443252774 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5127677581855479472, guid: e8f37d71e7fac3c4fa5f0e4b89b0de2e, type: 3}
+  m_PrefabInstance: {fileID: 657557427978249366}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &7455423823057059449 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7950789068455729903, guid: e8f37d71e7fac3c4fa5f0e4b89b0de2e, type: 3}
+  m_PrefabInstance: {fileID: 657557427978249366}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6785749803523139769
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8329246847743234306}
+    m_Modifications:
+    - target: {fileID: 4748324849287644288, guid: a66a7888159af1f47be8a649079e80f2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748324849287644288, guid: a66a7888159af1f47be8a649079e80f2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748324849287644288, guid: a66a7888159af1f47be8a649079e80f2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748324849287644288, guid: a66a7888159af1f47be8a649079e80f2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748324849287644288, guid: a66a7888159af1f47be8a649079e80f2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748324849287644288, guid: a66a7888159af1f47be8a649079e80f2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748324849287644288, guid: a66a7888159af1f47be8a649079e80f2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748324849287644288, guid: a66a7888159af1f47be8a649079e80f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748324849287644288, guid: a66a7888159af1f47be8a649079e80f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748324849287644288, guid: a66a7888159af1f47be8a649079e80f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6611425786803356819, guid: a66a7888159af1f47be8a649079e80f2, type: 3}
+      propertyPath: m_Name
+      value: Blood Wall Particle System
+      objectReference: {fileID: 0}
+    - target: {fileID: 6611425786803356819, guid: a66a7888159af1f47be8a649079e80f2, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a66a7888159af1f47be8a649079e80f2, type: 3}
+--- !u!4 &2291948706299063353 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4748324849287644288, guid: a66a7888159af1f47be8a649079e80f2, type: 3}
+  m_PrefabInstance: {fileID: 6785749803523139769}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &3941045682990293094 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7537542901842397407, guid: a66a7888159af1f47be8a649079e80f2, type: 3}
+  m_PrefabInstance: {fileID: 6785749803523139769}
+  m_PrefabAsset: {fileID: 0}

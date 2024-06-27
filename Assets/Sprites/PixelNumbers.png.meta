@@ -123,7 +123,7 @@ TextureImporter:
         serializedVersion: 2
         x: 14
         y: 0
-        width: 9
+        width: 13
         height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -142,7 +142,7 @@ TextureImporter:
       name: PixelNumbers_2
       rect:
         serializedVersion: 2
-        x: 24
+        x: 28
         y: 0
         width: 13
         height: 13
@@ -163,7 +163,7 @@ TextureImporter:
       name: PixelNumbers_3
       rect:
         serializedVersion: 2
-        x: 38
+        x: 42
         y: 0
         width: 13
         height: 13
@@ -184,7 +184,7 @@ TextureImporter:
       name: PixelNumbers_4
       rect:
         serializedVersion: 2
-        x: 52
+        x: 56
         y: 0
         width: 13
         height: 13
@@ -205,7 +205,7 @@ TextureImporter:
       name: PixelNumbers_5
       rect:
         serializedVersion: 2
-        x: 66
+        x: 70
         y: 0
         width: 13
         height: 13
@@ -226,7 +226,7 @@ TextureImporter:
       name: PixelNumbers_6
       rect:
         serializedVersion: 2
-        x: 80
+        x: 84
         y: 0
         width: 13
         height: 13
@@ -247,7 +247,7 @@ TextureImporter:
       name: PixelNumbers_7
       rect:
         serializedVersion: 2
-        x: 94
+        x: 98
         y: 0
         width: 13
         height: 13
@@ -268,7 +268,7 @@ TextureImporter:
       name: PixelNumbers_8
       rect:
         serializedVersion: 2
-        x: 108
+        x: 112
         y: 0
         width: 13
         height: 13
@@ -289,7 +289,7 @@ TextureImporter:
       name: PixelNumbers_9
       rect:
         serializedVersion: 2
-        x: 122
+        x: 126
         y: 0
         width: 13
         height: 13
@@ -310,7 +310,7 @@ TextureImporter:
       name: PixelNumbers_10
       rect:
         serializedVersion: 2
-        x: 136
+        x: 140
         y: 0
         width: 6
         height: 13
@@ -321,7 +321,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c54d12ff1662554583f0a7a2dcb286a
+      spriteID: 1709e7d8cf97fed4fa0bb52814408f82
       internalID: 397356940
       vertices: []
       indices: 

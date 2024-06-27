@@ -24,6 +24,8 @@ public class RangedWeapon : BasicWeapon
     public GameObject muzzleFlashPrefab;
     protected Animator muzzleFlashAnimator;
 
+    public float spreadAngle = 5f;
+
     private void Start()
     {
         ammoCounterUI = FindObjectOfType<AmmoCounterUI>();
@@ -71,7 +73,13 @@ public class RangedWeapon : BasicWeapon
 
     protected virtual void Shoot()
     {
-        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+        // Генерируем случайный угол в диапазоне [-spreadAngle/2, spreadAngle/2]
+        float randomAngle = Random.Range(-spreadAngle / 2, spreadAngle / 2);
+        
+        // Поворачиваем firePoint на случайный угол
+        Quaternion rotation = firePoint.rotation * Quaternion.Euler(0, 0, randomAngle);
+
+        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, rotation);
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
         rb.velocity = firePoint.up * projectileSpeed;
 

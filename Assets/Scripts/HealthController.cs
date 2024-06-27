@@ -1,11 +1,12 @@
 using UnityEngine;
 using System.Collections;
+using System.ComponentModel.Design.Serialization;
 
 public class HealthController : MonoBehaviour, IDamageable
 {
     [SerializeField] private int maxHealth = 100;
-    //[SerializeField] private GameObject bloodEffectPrefab; // Префаб эффекта крови
-    [SerializeField] private ParticleSystem bloodParticleSystem;
+    [SerializeField] private ParticleSystem bloodParticleSystemWall;
+    [SerializeField] private ParticleSystem bloodParticleSystemFloor;
     [SerializeField] private GameObject deadBodyPrefab; // Префаб трупа
     [SerializeField] private float knockbackDuration = 0.3f;
     private int currentHealth;
@@ -67,13 +68,45 @@ public class HealthController : MonoBehaviour, IDamageable
         // Предполагается, что у вас есть префаб эффекта крови, который вы можете использовать
         // Например:
         // Instantiate(bloodEffectPrefab, transform.position, Quaternion.identity);
-        Instantiate(bloodParticleSystem, transform.position, Quaternion.Euler(90f, 0f, 0f));
+        //Vector3 spawnPosition = new Vector3(transform.position.x, transform.position.y, 0f);
+        // Vector3 spawnPosition = transform.position - transform.up;
+        // float rotationAngle = -transform.eulerAngles.z - 90f;
+        // ParticleSystem instance = Instantiate(bloodParticleSystem, spawnPosition, Quaternion.Euler(rotationAngle, 90f, 90f));        //instance.transform.up = -transform.up;
+
+        // // Запускаем систему частиц
+        // instance.Play();
+
+        // Destroy(instance.gameObject, instance.main.duration + instance.main.startLifetime.constantMax);
+
+        if (bloodParticleSystemWall != null)
+        {
+            bloodParticleSystemWall.Play();
+        }
+        else
+        {
+            Debug.LogWarning("Blood ParticleSystem is not assigned in the inspector.");
+        }
+
+        if (bloodParticleSystemFloor != null)
+        {
+            bloodParticleSystemFloor.Play();
+        }
+        else
+        {
+            Debug.LogWarning("Blood ParticleSystem is not assigned in the inspector.");
+        }
     }
 
     private void Die(float knockbackForce)
     {
         // Логика смерти
         BloodEffect();
+
+        EnemyMovement enemyMovement = GetComponentInParent<EnemyMovement>();
+        if (enemyMovement != null)
+        {
+            enemyMovement.DisableParts();
+        }
 
         // Создание спрайта мёртвого тела
         GameObject deadBody = Instantiate(deadBodyPrefab, transform.position, transform.rotation);
@@ -82,10 +115,12 @@ public class HealthController : MonoBehaviour, IDamageable
         {
             // Применение силы отбрасывания к мёртвому телу
             //StartCoroutine(SlideDeadBody(deadBodyController, -transform.up));
-            enemyCorpseController.Slide(-transform.up);
+            enemyCorpseController.Slide(transform.up);
         }
 
-        Destroy(transform.root.gameObject);
+        EnemyManager.instance.UnregisterEnemy(transform.root.gameObject);
+
+        Destroy(transform.root.gameObject, 3f);
     }
 
     private IEnumerator SlideDeadBody(EnemyCorpseController enemyCorpseController, Vector2 slideDirection)

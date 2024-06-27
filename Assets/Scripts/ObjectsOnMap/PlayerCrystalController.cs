@@ -11,7 +11,7 @@ public class PlayerCrystalController : MonoBehaviour
         UpdateCrystalUI();
     }
 
-    private void UpdateCrystalUI()
+    public void UpdateCrystalUI()
     {
         if (crystalCounterUI != null)
         {

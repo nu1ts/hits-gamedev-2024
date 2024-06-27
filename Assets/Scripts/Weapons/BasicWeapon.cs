@@ -15,6 +15,7 @@ public abstract class BasicWeapon : MonoBehaviour
     public int damage;
     protected bool isCooldown;
     public FireMode fireMode = FireMode.Automatic;
+    public int cost;
 
     protected PlayerWeaponController playerWeaponController;
 

@@ -123,7 +123,7 @@ TextureImporter:
         serializedVersion: 2
         x: 9
         y: 0
-        width: 6
+        width: 8
         height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -142,7 +142,7 @@ TextureImporter:
       name: PixelNumbersPurple_2
       rect:
         serializedVersion: 2
-        x: 16
+        x: 18
         y: 0
         width: 8
         height: 9
@@ -163,7 +163,7 @@ TextureImporter:
       name: PixelNumbersPurple_3
       rect:
         serializedVersion: 2
-        x: 25
+        x: 27
         y: 0
         width: 8
         height: 9
@@ -184,7 +184,7 @@ TextureImporter:
       name: PixelNumbersPurple_4
       rect:
         serializedVersion: 2
-        x: 34
+        x: 36
         y: 0
         width: 8
         height: 9
@@ -205,7 +205,7 @@ TextureImporter:
       name: PixelNumbersPurple_5
       rect:
         serializedVersion: 2
-        x: 43
+        x: 45
         y: 0
         width: 8
         height: 9
@@ -226,7 +226,7 @@ TextureImporter:
       name: PixelNumbersPurple_6
       rect:
         serializedVersion: 2
-        x: 52
+        x: 54
         y: 0
         width: 8
         height: 9
@@ -247,7 +247,7 @@ TextureImporter:
       name: PixelNumbersPurple_7
       rect:
         serializedVersion: 2
-        x: 61
+        x: 63
         y: 0
         width: 8
         height: 9
@@ -268,7 +268,7 @@ TextureImporter:
       name: PixelNumbersPurple_8
       rect:
         serializedVersion: 2
-        x: 70
+        x: 72
         y: 0
         width: 8
         height: 9
@@ -289,7 +289,7 @@ TextureImporter:
       name: PixelNumbersPurple_9
       rect:
         serializedVersion: 2
-        x: 79
+        x: 81
         y: 0
         width: 8
         height: 9

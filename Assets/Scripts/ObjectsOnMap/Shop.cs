@@ -14,7 +14,6 @@ public class Shop : MonoBehaviour
     private bool isActive = true;
     private SpriteRenderer shopSpriteRenderer;
     private ShopCrystalUI shopCrystalUI;
-    public int weaponPrice = 10;
 
     private void Start()
     {
@@ -26,6 +25,7 @@ public class Shop : MonoBehaviour
             SpriteRenderer weaponSpriteRenderer = weaponPrefab.GetComponentInChildren<SpriteRenderer>();
             if (weaponSpriteRenderer != null)
             {
+                weaponCost = weaponPrefab.GetComponent<RangedWeapon>().cost;
                 // Find the WeaponSprite child and set its sprite
                 Transform weaponSpriteTransform = transform.Find("WeaponSprite");
                 if (weaponSpriteTransform != null)
@@ -44,10 +44,8 @@ public class Shop : MonoBehaviour
         shopCrystalUI = GetComponent<ShopCrystalUI>();
         if (shopCrystalUI != null)
         {
-            shopCrystalUI.UpdateCrystalCount(weaponCost);
+            UpdateCrystalCounter();
         }
-
-        UpdateCrystalCounter();
     }
 
     private void Update()
@@ -82,8 +80,7 @@ public class Shop : MonoBehaviour
     {
         if (playerController != null && playerWeaponController != null && playerController.crystalCount >= weaponCost)
         {
-            playerController.crystalCount -= weaponCost;
-            //playerController.UpdateCrystalUI();
+            playerController.AddCrystals(-weaponCost);
             playerWeaponController.EquipWeapon(weaponPrefab);
             SetInactive();
         }
@@ -116,6 +113,6 @@ public class Shop : MonoBehaviour
 
     private void UpdateCrystalCounter()
     {
-        shopCrystalUI.UpdateCrystalCount(weaponPrice);
+        shopCrystalUI.UpdateCrystalCount(weaponCost);
     }
 }

@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public class CrystalMagnet : MonoBehaviour
@@ -7,11 +8,13 @@ public class CrystalMagnet : MonoBehaviour
     public float attractionDistance = 3f; 
     private Transform playerTransform; // Ссылка на трансформ игрока
     private Rigidbody2D rb;
+    private Quaternion initialRotation; // Исходная ротация
 
     private void Start()
     {
         rb = GetComponentInParent<Rigidbody2D>();
-        //rb.isKinematic = true; // Делаем объект кинематическим для управления вручную
+        rb.isKinematic = true; // Делаем объект кинематическим для управления вручную
+        initialRotation = rb.transform.rotation;
     }
 
     private void FixedUpdate()
@@ -19,6 +22,10 @@ public class CrystalMagnet : MonoBehaviour
         if (playerTransform != null)
         {
             AttractToPlayer();
+        }
+        else
+        {
+            ReturnToInitialRotation();
         }
     }
 
@@ -29,9 +36,14 @@ public class CrystalMagnet : MonoBehaviour
 
         if (distance < attractionDistance)
         {
+            // Притягиваем к игроку
             float forceMagnitude = attractionForce * (1 - distance / attractionDistance);
             Vector2 force = direction.normalized * forceMagnitude;
             rb.velocity = force;
+
+            // Поворачиваем к игроку
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+            rb.transform.rotation = Quaternion.Euler(0, 0, angle);
         }
         else
         {
@@ -39,11 +51,16 @@ public class CrystalMagnet : MonoBehaviour
         }
     }
 
+    private void ReturnToInitialRotation()
+    {
+        // Возвращаем в исходное положение
+        rb.transform.rotation = Quaternion.RotateTowards(rb.transform.rotation, initialRotation, 200 * Time.deltaTime);
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("ENTERED CRYSTAL MAGNET");
             playerTransform = other.transform;
         }
     }

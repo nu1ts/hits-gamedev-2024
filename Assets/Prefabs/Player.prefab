@@ -505,8 +505,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d49a7a91449ad4d9ce103a81cb9bca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
-  acceleration: 100
+  speed: 20
+  acceleration: 80
   headRotationSpeed: 5
   armsRotationSpeed: 8
   legsRotationSpeed: 5
@@ -526,8 +526,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7f21455018c5f4d93774e637c95803, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crystals: 0
-  crystalText: {fileID: 0}
+  crystalCount: 0
+  crystalCounterUI: {fileID: 0}
 --- !u!114 &3429150940986255890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -540,15 +540,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3612f6a9bc28cbd4ebc1bd274f4eb7aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashBarUI: {fileID: 0}
-  dashCooldown: 1
-  dashSpeed: 60
+  dashBarUI: {fileID: 3218496642454876776}
+  dashCooldown: 3
+  dashSpeed: 50
   dashDuration: 0.2
-  timeScaleDuringDash: 0.5
-  ghostInterval: 0.1
-  ghostLifetime: 0.5
-  initialGhostAlpha: 0.1
+  timeScaleDuringDash: 0.3
+  ghostInterval: 0.02
+  ghostLifetime: 0.3
+  initialGhostAlpha: 0.5
   _isDashing: 0
+  head: {fileID: 1322074231142610259}
 --- !u!114 &3218496642454876776
 MonoBehaviour:
   m_ObjectHideFlags: 0

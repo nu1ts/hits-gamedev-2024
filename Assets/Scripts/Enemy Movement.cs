@@ -77,4 +77,22 @@ public class EnemyMovement : MoveController
         RotateTowardsTarget(targetPosition, arms.transform, armsRotationSpeed);
         RotateTowardsTarget(targetPosition, legs.transform, legsRotationSpeed);
     }
+
+    public void DisableParts()
+    {
+        if (head != null)
+        {
+            head.SetActive(false);
+        }
+        
+        if (arms != null)
+        {
+            arms.SetActive(false);
+        }
+        
+        if (legs != null)
+        {
+            legs.SetActive(false);
+        }
+    }
 }

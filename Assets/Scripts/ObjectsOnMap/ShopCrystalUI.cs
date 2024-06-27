@@ -6,14 +6,13 @@ public class ShopCrystalUI : MonoBehaviour
     public Image[] digitImages;       // Массив Image для отображения цифр
     public Sprite[] digitSprites;     // Массив спрайтов для цифр (0-9)
 
-    private int currentPrice = 10;    // Пример начальной цены
+    private int currentPrice = 0;    // Пример начальной цены
     private Canvas canvas;
 
 
     private void Start()
     {
         canvas = GetComponentInChildren<Canvas>();
-        UpdateCrystalCount(currentPrice);  // Обновляем отображение начальной цены
     }
 
     public void SetActive(bool isActive)
@@ -24,7 +23,7 @@ public class ShopCrystalUI : MonoBehaviour
     public void UpdateCrystalCount(int crystals)
     {
         string crystalStr = crystals.ToString();
-
+        Debug.Log("STR " + crystalStr);
         // Отображаем цифры цены
         for (int i = 0; i < digitImages.Length; i++)
         {
