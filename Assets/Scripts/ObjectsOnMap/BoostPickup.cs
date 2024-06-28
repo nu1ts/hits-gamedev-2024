@@ -1,4 +1,4 @@
-using System.Collections;
+using State_Machine;
 using UnityEngine;
 
 public class BoostPickup : MonoBehaviour
@@ -9,8 +9,7 @@ public class BoostPickup : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        HealthController healthController = collision.GetComponent<HealthController>();
-        if (healthController != null)
+        if (collision.CompareTag("Player"))
         {
             if (boostParticlePrefab != null)
             {
@@ -31,12 +30,13 @@ public class BoostPickup : MonoBehaviour
 
             // Активируем замедление времени
             PlayerMovement playerMovement = collision.GetComponentInParent<PlayerMovement>();
+            Debug.Log(playerMovement);
             if (playerMovement != null)
             {
                 TimeManager.instance.SlowTime(timeSlowDuration, timeSlowScale, playerMovement);
             }
 
-            Destroy(gameObject); // Уничтожаем аптечку после использования
+            Destroy(gameObject);
         }
     }
 }
