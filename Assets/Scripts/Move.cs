@@ -1,19 +1,18 @@
 using System.Linq;
 using UnityEngine;
 
-public class MoveController : MonoBehaviour
+public class Move : MonoBehaviour
 {
-    protected Rigidbody2D Rigidbody2D;
+    private Rigidbody2D _body;
 
-    protected virtual void Awake()
+    protected void Setup(Rigidbody2D body)
     {
-        Rigidbody2D = GetComponent<Rigidbody2D>();
+        _body = body;
     }
-
     protected void MoveFromTo(Vector2 from, Vector2 to, float speed, float acceleration)
     {
         var direction = (to - from).normalized;
-        Rigidbody2D.velocity = Vector2.MoveTowards(Rigidbody2D.velocity, direction * speed, acceleration * Time.fixedDeltaTime);
+        _body.velocity = Vector2.MoveTowards(_body.velocity, direction * speed, acceleration * Time.fixedDeltaTime);
     }
 
     protected static void RotateTowardsTarget(Vector2 rotationTarget, Transform lookTarget, float rotationSpeed)

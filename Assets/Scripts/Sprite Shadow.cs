@@ -27,7 +27,7 @@ public class SpriteShadow : MonoBehaviour
             _parentTransforms[child.name] = child;
         }
 
-        InstantiatePrefab();
+        InstantiateShadows();
     }
 
     private void OnValidate()
@@ -49,7 +49,7 @@ public class SpriteShadow : MonoBehaviour
         }
     }
 
-    private void InstantiatePrefab()
+    private void InstantiateShadows()
     {
         if (!prefab) return;
 

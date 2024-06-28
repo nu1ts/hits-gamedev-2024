@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MoveController
+public class PlayerMovement : Move
 {
     public float speed = 30f;
     public float acceleration = 100f;
@@ -20,9 +20,8 @@ public class PlayerMovement : MoveController
     private int _isMovingHash;
     private List<Animator> _animators;
 
-    protected override void Awake()
+    private void Awake()
     {
-        base.Awake();
         _cam = Camera.main;
         _isMovingHash = Animator.StringToHash("isMoving");
     }

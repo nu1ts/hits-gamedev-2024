@@ -1,10 +1,9 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerHandController : MonoBehaviour
+public class HandController : MonoBehaviour
 {
     public Transform equippedWeaponParent;  // Родитель для точки крепления оружия (Equipped Weapon)
-    public Transform rightArm;  // Ссылка на правую руку
     public GameObject initialWeaponPrefab;  // Префаб начального оружия
 
     private GameObject currentWeaponInstance;  // Текущий экземпляр оружия
@@ -35,17 +34,6 @@ public class PlayerHandController : MonoBehaviour
             currentWeaponInstance.transform.SetParent(currentWeaponPoint, false);
             currentWeaponInstance.transform.localPosition = Vector3.zero;
             currentWeaponInstance.transform.localRotation = Quaternion.identity;
-
-            // Позиционируем правую руку на точке Right Hand Point оружия
-            Transform rightHandPointInWeapon = currentWeaponInstance.transform.Find("RightHandPoint");
-
-            Debug.Log(rightHandPointInWeapon.IsUnityNull());
-
-            if (rightHandPointInWeapon != null)
-            {
-                rightArm.position = rightHandPointInWeapon.position;
-                rightArm.rotation = rightHandPointInWeapon.rotation;
-            }
         }
         else
         {

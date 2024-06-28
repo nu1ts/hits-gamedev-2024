@@ -6,16 +6,8 @@ public class PlayerWeaponController : MonoBehaviour
     public BasicWeapon currentWeapon;
     private bool isFiring;
     public Transform weaponPoint;
-
-    public Transform rightHandPoint;
-    private Animator rightHandAnimator;
+    
     public AmmoCounterUI ammoCounterUI;
-
-    private void Start()
-    {
-        rightHandAnimator = rightHandPoint.GetComponent<Animator>();
-        CheckRightArmAnimator();
-    }
 
     private void Update()
     {
@@ -75,26 +67,6 @@ public class PlayerWeaponController : MonoBehaviour
         else
         {
             ammoCounterUI.enabled = false;
-        }
-
-        CheckRightArmAnimator();
-    }
-
-    private void CheckRightArmAnimator()
-    {
-        if (currentWeapon)
-        {
-            if (rightHandAnimator != null)
-            {
-                rightHandAnimator.enabled = false;
-            }
-        }
-        else
-        {
-            if (rightHandAnimator != null)
-            {
-                rightHandAnimator.enabled = true;
-            }
         }
     }
 }
