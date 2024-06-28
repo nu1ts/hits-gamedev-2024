@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class GrenadeShell : MonoBehaviour
 {
-    public GameObject explosionPrefab; // Префаб взрыва
+     public GameObject explosionPrefab; // Префаб взрыва
 
-    public float speed = 25f; // Задержка перед взрывом
+    public float speed = 25f; // Скорость полета гранаты
     public float explosionDelay = 3f; // Задержка перед взрывом
     public float explosionRadius = 5f; // Радиус взрыва
     public int explosionDamage = 50; // Урон от взрыва
@@ -14,7 +14,6 @@ public class GrenadeShell : MonoBehaviour
     private Rigidbody2D rb;
     public LayerMask collisionLayers;
     private Vector2 previousPosition;
-    private bool hasExplode = false;
 
     private void Awake()
     {
@@ -50,7 +49,7 @@ public class GrenadeShell : MonoBehaviour
                 // Смещаем пулю чуть дальше точки столкновения, чтобы избежать повторного столкновения с той же точкой
                 rb.position = hit.point + hit.normal * 0.01f;
             }
-            else if (hit.collider != null && !hasExplode)
+            else if (!hasExploded)
             {
                 Explode();
             }

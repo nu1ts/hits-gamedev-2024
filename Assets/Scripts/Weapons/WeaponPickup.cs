@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class WeaponPickup : MonoBehaviour
 {
@@ -47,6 +46,8 @@ public class WeaponPickup : MonoBehaviour
     {
         isPickingUpWeapon = true; // Устанавливаем флаг перед началом подбора
         playerWeaponController.EquipWeapon(weaponPrefab);
+
+        WeaponManager.instance.EquipWeapon(weaponPrefab);
         
         Renderer renderer = GetComponent<Renderer>();
         if (renderer != null)

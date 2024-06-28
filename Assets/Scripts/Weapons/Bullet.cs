@@ -12,7 +12,8 @@ public class Bullet : MonoBehaviour
     private bool hasDealtDamage = false;
 
     public LayerMask collisionLayers;
-    public LayerMask teleportLayer;
+
+    public bool canRicochet = false;
 
     private void Start()
     {
@@ -33,30 +34,26 @@ public class Bullet : MonoBehaviour
 
         if (hit.collider != null)
         {
-            if (((1 << hit.collider.gameObject.layer) & teleportLayer) != 0)
+            if (hit.collider.CompareTag("Wall"))
             {
-                // Обрабатываем телепортацию
-                Teleport teleport = hit.collider.GetComponent<Teleport>();
-                if (teleport != null && teleport.linkedTeleport != null)
+                if (canRicochet)
                 {
-                    transform.position = teleport.linkedTeleport.transform.position;
-                    previousPosition = rb.position;
+                    Vector2 reflectedDirection = Vector2.Reflect(rb.velocity.normalized, hit.normal);
+
+                    // Применяем отраженное направление пули
+                    rb.velocity = reflectedDirection * speed;
+
+                    // Разворачиваем пулю в сторону отражения
+                    float angle = Mathf.Atan2(reflectedDirection.y, reflectedDirection.x) * Mathf.Rad2Deg;
+                    rb.rotation = angle - 90f; // корректируем угол на 90 градусов
+
+                    // Смещаем пулю чуть дальше точки столкновения, чтобы избежать повторного столкновения с той же точкой
+                    rb.position = hit.point + hit.normal * 0.01f;
                 }
-            }
-            else if (hit.collider.CompareTag("Wall"))
-            {
-                Vector2 reflectedDirection = Vector2.Reflect(rb.velocity.normalized, hit.normal);
-
-                // Применяем отраженное направление пули
-                rb.velocity = reflectedDirection * speed;
-
-                // Разворачиваем пулю в сторону отражения
-                float angle = Mathf.Atan2(reflectedDirection.y, reflectedDirection.x) * Mathf.Rad2Deg;
-                rb.rotation = angle - 90f; // корректируем угол на 90 градусов
-
-                // Смещаем пулю чуть дальше точки столкновения, чтобы избежать повторного столкновения с той же точкой
-                rb.position = hit.point + hit.normal * 0.01f;
-                //Destroy(gameObject);
+                else
+                {
+                    Destroy(gameObject);
+                }
             }
             else if (hit.collider != null && !hasDealtDamage)
             {

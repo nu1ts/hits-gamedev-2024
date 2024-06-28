@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using System.ComponentModel.Design.Serialization;
 
 public class HealthController : MonoBehaviour, IDamageable
 {
@@ -47,7 +46,7 @@ public class HealthController : MonoBehaviour, IDamageable
 
         if (currentHealth <= 0)
         {
-            Die(knockbackForce);
+            Die();
         }
     }
 
@@ -77,6 +76,10 @@ public class HealthController : MonoBehaviour, IDamageable
         // instance.Play();
 
         // Destroy(instance.gameObject, instance.main.duration + instance.main.startLifetime.constantMax);
+        if (this.gameObject.CompareTag("Player"))
+        {
+            BloodOnScreenController.instance.ShowBloodEffect();
+        }
 
         if (bloodParticleSystemWall != null)
         {
@@ -97,7 +100,7 @@ public class HealthController : MonoBehaviour, IDamageable
         }
     }
 
-    private void Die(float knockbackForce)
+    private void Die()
     {
         // Логика смерти
         BloodEffect();
@@ -133,5 +136,9 @@ public class HealthController : MonoBehaviour, IDamageable
     public void Heal(int amount)
     {
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        if (healthBarUI != null)
+        {
+            healthBarUI.UpdateHealth(currentHealth);
+        }
     }
 }

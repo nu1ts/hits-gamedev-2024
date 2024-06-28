@@ -3,12 +3,12 @@ using UnityEngine;
 public class Shotgun : RangedWeapon
 {
     public int pelletCount = 6;         // Количество снарядов, выпускаемых за один выстрел
-    public new float spreadAngle = 15f;     // Угол разброса снарядов
+    public float spreadPelletAngle = 15f;     // Угол разброса снарядов
 
     protected override void Shoot()
     {
-        float stepAngle = spreadAngle / (pelletCount - 1); // Угол между снарядами
-        float startAngle = -spreadAngle / 2;
+        float stepAngle = spreadPelletAngle / (pelletCount - 1); // Угол между снарядами
+        float startAngle = -spreadPelletAngle / 2;
 
         for (int i = 0; i < pelletCount; i++)
         {

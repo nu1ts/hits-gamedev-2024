@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f08314ed15d2f443ba9e160fc1d0868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healAmount: 20
+  healAmount: 70
   healParticlePrefab: {fileID: 8467335422390245230, guid: 9e063c596d7b869428df1d680488433c, type: 3}
 --- !u!58 &5895719360992978113
 CircleCollider2D:
@@ -134,4 +134,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 1

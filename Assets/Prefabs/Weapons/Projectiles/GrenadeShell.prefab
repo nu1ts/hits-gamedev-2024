@@ -217,7 +217,7 @@ MonoBehaviour:
   knockbackForce: 20
   collisionLayers:
     serializedVersion: 2
-    m_Bits: 320
+    m_Bits: 1344
 --- !u!212 &5419146961097823538
 SpriteRenderer:
   m_ObjectHideFlags: 0

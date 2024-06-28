@@ -93,4 +93,9 @@ public class CameraController : MonoBehaviour
         _shakeTimer = duration;
         _shakeMagnitude = magnitude;
     }
+
+    public void SetDistance(float newDistance)
+    {
+        cameraDistance = newDistance;
+    }
 }

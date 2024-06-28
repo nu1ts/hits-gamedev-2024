@@ -5,7 +5,7 @@ public class RangedWeapon : BasicWeapon
 {
     public GameObject projectilePrefab;
     public Transform firePoint;
-    public float projectileSpeed;
+    public Transform muzzleFlashPoint;
 
     public int maxAmmo = 30;            // Максимальное количество патронов в магазине
     public float reloadTime = 1.5f;     // Время перезарядки
@@ -25,14 +25,15 @@ public class RangedWeapon : BasicWeapon
     protected Animator muzzleFlashAnimator;
 
     public float spreadAngle = 5f;
+    public bool canRicochet = false;
 
     private void Start()
     {
         ammoCounterUI = FindObjectOfType<AmmoCounterUI>();
         
-        if (muzzleFlashPrefab != null && firePoint != null)
+        if (muzzleFlashPrefab != null && muzzleFlashPoint != null)
         {
-            GameObject muzzleFlashInstance = Instantiate(muzzleFlashPrefab, firePoint.position, firePoint.rotation, firePoint);
+            GameObject muzzleFlashInstance = Instantiate(muzzleFlashPrefab, muzzleFlashPoint.position, muzzleFlashPoint.rotation, muzzleFlashPoint);
             muzzleFlashAnimator = muzzleFlashInstance.GetComponent<Animator>();
         }
     }
@@ -73,7 +74,6 @@ public class RangedWeapon : BasicWeapon
 
     protected virtual void Shoot()
     {
-        Debug.Log("SHOOT");
         // Генерируем случайный угол в диапазоне [-spreadAngle/2, spreadAngle/2]
         float randomAngle = Random.Range(-spreadAngle / 2, spreadAngle / 2);
         
@@ -81,8 +81,15 @@ public class RangedWeapon : BasicWeapon
         Quaternion rotation = firePoint.rotation * Quaternion.Euler(0, 0, randomAngle);
 
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, rotation);
+        Bullet bullet = projectile.GetComponent<Bullet>();
+
+        if (bullet != null)
+        {
+            bullet.canRicochet = canRicochet;
+            bullet.damage = damage;
+        }
+
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
-        rb.velocity = firePoint.up * projectileSpeed;
 
         ApplyRecoil();
 

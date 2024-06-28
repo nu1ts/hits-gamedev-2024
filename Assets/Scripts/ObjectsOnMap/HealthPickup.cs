@@ -8,7 +8,7 @@ public class HealthPickup : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         HealthController healthController = collision.GetComponent<HealthController>();
-        if (healthController != null)
+        if (collision.CompareTag("Player") && healthController != null)
         {
             healthController.Heal(healAmount);
 

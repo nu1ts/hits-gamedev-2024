@@ -33,6 +33,7 @@ Transform:
   m_Children:
   - {fileID: 122337658965665751}
   - {fileID: 2208675254327129581}
+  - {fileID: 7582537341107733925}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &356523233595021364
@@ -106,7 +107,7 @@ MonoBehaviour:
   cost: 0
   projectilePrefab: {fileID: 5486736352668934955, guid: 83170b9aefb3b114eb771e6b8ceff4bb, type: 3}
   firePoint: {fileID: 122337658965665751}
-  projectileSpeed: 0
+  muzzleFlashPoint: {fileID: 7582537341107733925}
   maxAmmo: 3
   reloadTime: 3
   recoilForce: 5
@@ -115,10 +116,39 @@ MonoBehaviour:
   cameraShakeMagnitude: 0.2
   muzzleFlashPrefab: {fileID: 7319488933583184703, guid: c34d63cf58ad7ff428be7b7781e7c3ac, type: 3}
   spreadAngle: 0
+  canRicochet: 0
   grenadeShellPrefab: {fileID: 5486736352668934955, guid: 83170b9aefb3b114eb771e6b8ceff4bb, type: 3}
-  launchForce: 10
-  explosionRadius: 5
-  explosionDamage: 50
+--- !u!1 &3400079872299172124
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7582537341107733925}
+  m_Layer: 0
+  m_Name: MuzzleFlashPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7582537341107733925
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3400079872299172124}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0.813, y: -0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5436848528774355985}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5623500888354298574
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,7 +174,7 @@ Transform:
   m_GameObject: {fileID: 5623500888354298574}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.85, y: 0, z: 0}
+  m_LocalPosition: {x: -0.243, y: -0.032, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
