@@ -9,18 +9,23 @@ public class MeleeWeapon : BasicWeapon
     private Animator leftArmAnimator;
     private Animator rightArmAnimator;
 
+    private Animator animator;
+
+
     private void Start()
     {
         attackCollider = attackArea.GetComponent<BoxCollider2D>();
-        attackCollider.enabled = false; // Отключаем коллайдер по умолчанию
+        //attackCollider.enabled = false; // Отключаем коллайдер по умолчанию
 
-        leftArmAnimator = transform.root.Find("Arms/Left Arm").GetComponent<Animator>();
-        rightArmAnimator = transform.root.Find("Arms/Right Arm").GetComponent<Animator>();
+        //leftArmAnimator = transform.root.Find("Arms/Left Arm").GetComponent<Animator>();
+        //rightArmAnimator = transform.root.Find("Arms/Right Arm").GetComponent<Animator>();
 
-        if (leftArmAnimator == null || rightArmAnimator == null)
-        {
-            Debug.LogError("Animator not found on arms.");
-        }
+        // if (leftArmAnimator == null || rightArmAnimator == null)
+        // {
+        //     Debug.LogError("Animator not found on arms.");
+        // }
+
+        animator = GetComponent<Animator>();
     }
 
     public override void UseWeapon()
@@ -32,17 +37,21 @@ public class MeleeWeapon : BasicWeapon
 
     private void Attack()
     {
-        leftArmAnimator.Play("Right-hand-attack");
-        rightArmAnimator.Play("Right-hand-attack");
-
+        // leftArmAnimator.Play("Right-hand-attack");
+        // rightArmAnimator.Play("Right-hand-attack");
+        if (animator != null)
+        {
+            animator.SetTrigger("Attack"); // Запуск анимации атаки
+        }
         StartCoroutine(CooldownAttack());
     }
 
     //КОСТЫЛЬ ДЛЯ УДАРА КУЛАКАМИ (ЧТОБЫ АТАКА БЫЛА ВО ВРЕМЯ УДАРА ИМЕННО)
     protected IEnumerator CooldownAttack()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
 
+        Debug.Log("KNIFE ATTACK");
         attackCollider.enabled = true;
 
         // Получаем всех врагов в зоне действия

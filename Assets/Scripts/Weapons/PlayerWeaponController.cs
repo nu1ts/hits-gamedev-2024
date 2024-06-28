@@ -14,11 +14,15 @@ public class PlayerWeaponController : MonoBehaviour
 
     private CameraController _cameraController;
 
+    public BasicWeapon initialWeaponPrefab;
+
     private void Start()
     {
         _cameraController = FindObjectOfType<CameraController>();
         rightHandAnimator = rightHandPoint.GetComponent<Animator>();
         CheckRightArmAnimator();
+
+        InitializeInitialWeapon();
     }
 
      private void OnEnable()
@@ -88,7 +92,12 @@ public class PlayerWeaponController : MonoBehaviour
         if (currentWeapon is RangedWeapon)
         {
             ammoCounterUI.enabled = true;
-            //(currentWeapon as RangedWeapon).UpdateAmmoUI();
+            RangedWeapon rangedWeapon = currentWeapon as RangedWeapon;
+            if (rangedWeapon != null)
+            {
+                rangedWeapon.ammoCounterUI = this.ammoCounterUI;
+                rangedWeapon.UpdateAmmoUI();
+            }
         }
         else
         {
@@ -121,5 +130,13 @@ public class PlayerWeaponController : MonoBehaviour
     public void CameraShake(float cameraShakeDuration, float cameraShakeMagnitude)
     {
         _cameraController.ShakeCamera(cameraShakeDuration, cameraShakeMagnitude);
+    }
+
+    private void InitializeInitialWeapon()
+    {
+        if (initialWeaponPrefab != null)
+        {
+            EquipWeapon(initialWeaponPrefab);
+        }
     }
 }

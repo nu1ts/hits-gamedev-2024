@@ -48,7 +48,7 @@ public class WeaponPickup : MonoBehaviour
         playerWeaponController.EquipWeapon(weaponPrefab);
 
         WeaponManager.instance.EquipWeapon(weaponPrefab);
-        
+
         Renderer renderer = GetComponent<Renderer>();
         if (renderer != null)
         {
