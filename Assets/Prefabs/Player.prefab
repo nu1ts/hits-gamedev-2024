@@ -279,7 +279,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentWeapon: {fileID: 0}
   weaponPoint: {fileID: 4852795843743410554}
-  rightHandPoint: {fileID: 0}
   ammoCounterUI: {fileID: 0}
   initialWeaponPrefab: {fileID: 2612550226900728284}
 --- !u!114 &8757896887850900983
@@ -421,7 +420,7 @@ GameObject:
   - component: {fileID: 1116326163295575653}
   m_Layer: 10
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -527,6 +526,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -2253911629886400664, guid: 838ba63a4aaa1954cbeee30f59ce6569, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: 838ba63a4aaa1954cbeee30f59ce6569, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 838ba63a4aaa1954cbeee30f59ce6569, type: 3}

@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class AIWeaponController : MonoBehaviour
 {
-    [Header("Enemy Data")]
-    public Enemy enemy;
-    
     public BasicWeapon currentWeapon;
     private bool isFiring;
     public Transform weaponPoint;
@@ -54,6 +51,8 @@ public class AIWeaponController : MonoBehaviour
 
         currentWeapon = Instantiate(newWeapon, weaponPoint.position, weaponPoint.rotation, weaponPoint);
         currentWeapon.transform.SetParent(weaponPoint);
+        
+        currentWeapon.SetAiWeaponController(this);
     }
 
     public void SetFireState(bool state)

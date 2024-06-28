@@ -91,7 +91,7 @@ public class RangedWeapon : BasicWeapon
 
         ApplyRecoil();
 
-        playerWeaponController.CameraShake(cameraShakeDuration, cameraShakeMagnitude);
+        if(playerWeaponController) playerWeaponController.CameraShake(cameraShakeDuration, cameraShakeMagnitude);
 
         if (muzzleFlashAnimator != null)
         {
