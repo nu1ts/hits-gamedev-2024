@@ -1,0 +1,1067 @@
+fileFormatVersion: 2
+guid: 96ce2553e62c45e4b8de7f2ed70465e5
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: RemboEnemy_Frame_8
+    originalName: 
+    pivot: {x: 0.5, y: -0.64285713}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 188
+      y: 31
+      width: 24
+      height: 14
+    spriteID: c87574f0374a8174ebb8b8beeeab8cd2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 188, y: 31}
+  - name: RemboEnemy_Frame_9
+    originalName: 
+    pivot: {x: 0.5, y: -0.5333333}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 184
+      y: 82
+      width: 22
+      height: 15
+    spriteID: 93282e5b09a2f8042971e7168eb1e113
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 184, y: 82}
+  - name: RemboEnemy_Frame_10
+    originalName: 
+    pivot: {x: 0.5, y: -0.4375}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 108
+      width: 20
+      height: 16
+    spriteID: 9ebd86c20154587448085dcc0e2bb86e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 108}
+  - name: RemboEnemy_Frame_11
+    originalName: 
+    pivot: {x: 0.5, y: -0.33333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 82
+      width: 20
+      height: 18
+    spriteID: e9a097e98fb18264394fbd627c2c6926
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 82}
+  - name: RemboEnemy_Frame_12
+    originalName: 
+    pivot: {x: 0.5, y: -0.41176468}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 31
+      width: 22
+      height: 17
+    spriteID: 420a3703a50db9e499ebf65751dbe5c7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 36, y: 31}
+  - name: RemboEnemy_Frame_13
+    originalName: 
+    pivot: {x: 0.5, y: -0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 95
+      y: 56
+      width: 24
+      height: 16
+    spriteID: d4087f44f096e564691ca0c938ed7ac8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 95, y: 56}
+  - name: RemboEnemy_Frame_14
+    originalName: 
+    pivot: {x: 0.5, y: -0.5625}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 127
+      y: 56
+      width: 24
+      height: 16
+    spriteID: 3b6c33e24dfc4c74f91b93da82653813
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 127, y: 56}
+  - name: RemboEnemy_Frame_15
+    originalName: 
+    pivot: {x: 0.5, y: -0.4705882}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 66
+      y: 31
+      width: 22
+      height: 17
+    spriteID: 542aaa36dbb68b945945df76dce961a3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 66, y: 31}
+  - name: RemboEnemy_Frame_16
+    originalName: 
+    pivot: {x: 0.5, y: -0.3888889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 82
+      width: 20
+      height: 18
+    spriteID: f6342881ba7d31246b0387cce4f4cb0d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 32, y: 82}
+  - name: RemboEnemy_Frame_17
+    originalName: 
+    pivot: {x: 0.5, y: -0.33333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 60
+      y: 82
+      width: 20
+      height: 18
+    spriteID: 0c63d713b745e4f4b8353d7267d06379
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 60, y: 82}
+  - name: RemboEnemy_Frame_18
+    originalName: 
+    pivot: {x: 0.5, y: -0.41176468}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 96
+      y: 31
+      width: 22
+      height: 17
+    spriteID: cc3b544823a38c645a7263b21390d204
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 96, y: 31}
+  - name: RemboEnemy_Frame_19
+    originalName: 
+    pivot: {x: 0.5, y: -0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 159
+      y: 56
+      width: 24
+      height: 16
+    spriteID: ee4ff8b4594fc3949b4db9ef7e2794a1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 159, y: 56}
+  - name: RemboEnemy_Frame_20
+    originalName: 
+    pivot: {x: 0.5, y: -0.3529412}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 223
+      y: 4
+      width: 24
+      height: 17
+    spriteID: 5eb7decbf0a09eb47be5418b0656aa1d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 223, y: 4}
+  - name: RemboEnemy_Frame_21
+    originalName: 
+    pivot: {x: 0.5217391, y: -0.3529412}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 64
+      y: 56
+      width: 23
+      height: 17
+    spriteID: f0802cb1835fbc54ba78b0af2588cdfb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 64, y: 56}
+  - name: RemboEnemy_Frame_22
+    originalName: 
+    pivot: {x: 0.54545456, y: -0.3529412}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 126
+      y: 31
+      width: 22
+      height: 17
+    spriteID: 0f1c8fc4df0a17d4386e23955457f053
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 126, y: 31}
+  - name: RemboEnemy_Frame_23
+    originalName: 
+    pivot: {x: 0.54545456, y: -0.33333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 56
+      width: 22
+      height: 18
+    spriteID: 382525a66f631e947ad111ab93d6f818
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 56}
+  - name: RemboEnemy_Frame_24
+    originalName: 
+    pivot: {x: 0.5217391, y: -0.33333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 161
+      y: 4
+      width: 23
+      height: 18
+    spriteID: 30b89a11eaa424d4299174d189a87396
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 161, y: 4}
+  - name: RemboEnemy_Frame_25
+    originalName: 
+    pivot: {x: 0.5, y: -0.33333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 67
+      y: 4
+      width: 24
+      height: 18
+    spriteID: 4af55712f36b5b944837be33b095d7e3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 67, y: 4}
+  - name: RemboEnemy_Frame_26
+    originalName: 
+    pivot: {x: 0.5, y: -0.3157895}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 24
+      height: 19
+    spriteID: 4557ffe4302e204468e42ca91a27795e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: RemboEnemy_Frame_27
+    originalName: 
+    pivot: {x: 0.5217391, y: -0.3157895}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 4
+      width: 23
+      height: 19
+    spriteID: 48176c75bac7df240acd193052444abf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 36, y: 4}
+  - name: RemboEnemy_Frame_28
+    originalName: 
+    pivot: {x: 0.54545456, y: -0.3157895}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 131
+      y: 4
+      width: 22
+      height: 19
+    spriteID: 8b1bf3e9b4c7163419fd86eb0f2c7ce1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 131, y: 4}
+  - name: RemboEnemy_Frame_29
+    originalName: 
+    pivot: {x: 0.54545456, y: -0.33333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 34
+      y: 56
+      width: 22
+      height: 18
+    spriteID: 59dd871f571e4d44b80817f7bb6af816
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 34, y: 56}
+  - name: RemboEnemy_Frame_30
+    originalName: 
+    pivot: {x: 0.5217391, y: -0.33333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 192
+      y: 4
+      width: 23
+      height: 18
+    spriteID: f92400c41bcfa0c438ba00607bcc5f17
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 192, y: 4}
+  - name: RemboEnemy_Frame_31
+    originalName: 
+    pivot: {x: 0.5, y: -0.33333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 99
+      y: 4
+      width: 24
+      height: 18
+    spriteID: 394ccb08b1881e74cb5e3ee05f19ddc2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 99, y: 4}
+  - name: RemboEnemy_Frame_0
+    originalName: 
+    pivot: {x: 0.5, y: -0.64285713}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 220
+      y: 31
+      width: 24
+      height: 14
+    spriteID: d29a16f97f998c04993271311509fa53
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 220, y: 31}
+  - name: RemboEnemy_Frame_1
+    originalName: 
+    pivot: {x: 0.5, y: -0.57142854}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 88
+      y: 82
+      width: 24
+      height: 14
+    spriteID: 8335b1e193b1c6347b6dfafc58aac8ac
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 88, y: 82}
+  - name: RemboEnemy_Frame_2
+    originalName: 
+    pivot: {x: 0.5, y: -0.49999997}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 120
+      y: 82
+      width: 24
+      height: 14
+    spriteID: 742cbbcfc8d52694ebea8835e3122e8e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 120, y: 82}
+  - name: RemboEnemy_Frame_3
+    originalName: 
+    pivot: {x: 0.5, y: -0.57142854}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 152
+      y: 82
+      width: 24
+      height: 14
+    spriteID: f415ea7fcbc411748bff43275c1b292b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 152, y: 82}
+  - name: RemboEnemy_Frame_4
+    originalName: 
+    pivot: {x: 0.5, y: -0.3529412}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 31
+      width: 24
+      height: 17
+    spriteID: bc11d52c7b421dd499a77b90b4b833aa
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 31}
+  - name: RemboEnemy_Frame_5
+    originalName: 
+    pivot: {x: 0.5, y: -0.375}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 191
+      y: 56
+      width: 24
+      height: 16
+    spriteID: 42c0dc23f457ee042b071d22e2d57a20
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 191, y: 56}
+  - name: RemboEnemy_Frame_6
+    originalName: 
+    pivot: {x: 0.5, y: -0.4}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 156
+      y: 31
+      width: 24
+      height: 15
+    spriteID: 841ec456afdacb04eb0e03517a6a202e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 156, y: 31}
+  - name: RemboEnemy_Frame_7
+    originalName: 
+    pivot: {x: 0.5, y: -0.375}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 223
+      y: 56
+      width: 24
+      height: 16
+    spriteID: 82d835212c31fa14c996ba7a047bf930
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 223, y: 56}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: 1964906009
+    name: RemboEnemy
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: RemboEnemy_Frame_8
+      frameIndex: 8
+      additiveSortOrder: 0
+      cellRect:
+        x: 4
+        y: 9
+        width: 24
+        height: 14
+      spriteId: c87574f0374a8174ebb8b8beeeab8cd2
+    - name: RemboEnemy_Frame_9
+      frameIndex: 9
+      additiveSortOrder: 0
+      cellRect:
+        x: 5
+        y: 8
+        width: 22
+        height: 15
+      spriteId: 93282e5b09a2f8042971e7168eb1e113
+    - name: RemboEnemy_Frame_10
+      frameIndex: 10
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 7
+        width: 20
+        height: 16
+      spriteId: 9ebd86c20154587448085dcc0e2bb86e
+    - name: RemboEnemy_Frame_11
+      frameIndex: 11
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 6
+        width: 20
+        height: 18
+      spriteId: e9a097e98fb18264394fbd627c2c6926
+    - name: RemboEnemy_Frame_12
+      frameIndex: 12
+      additiveSortOrder: 0
+      cellRect:
+        x: 5
+        y: 7
+        width: 22
+        height: 17
+      spriteId: 420a3703a50db9e499ebf65751dbe5c7
+    - name: RemboEnemy_Frame_13
+      frameIndex: 13
+      additiveSortOrder: 0
+      cellRect:
+        x: 4
+        y: 8
+        width: 24
+        height: 16
+      spriteId: d4087f44f096e564691ca0c938ed7ac8
+    - name: RemboEnemy_Frame_14
+      frameIndex: 14
+      additiveSortOrder: 0
+      cellRect:
+        x: 4
+        y: 9
+        width: 24
+        height: 16
+      spriteId: 3b6c33e24dfc4c74f91b93da82653813
+    - name: RemboEnemy_Frame_15
+      frameIndex: 15
+      additiveSortOrder: 0
+      cellRect:
+        x: 5
+        y: 8
+        width: 22
+        height: 17
+      spriteId: 542aaa36dbb68b945945df76dce961a3
+    - name: RemboEnemy_Frame_16
+      frameIndex: 16
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 7
+        width: 20
+        height: 18
+      spriteId: f6342881ba7d31246b0387cce4f4cb0d
+    - name: RemboEnemy_Frame_17
+      frameIndex: 17
+      additiveSortOrder: 0
+      cellRect:
+        x: 6
+        y: 6
+        width: 20
+        height: 18
+      spriteId: 0c63d713b745e4f4b8353d7267d06379
+    - name: RemboEnemy_Frame_18
+      frameIndex: 18
+      additiveSortOrder: 0
+      cellRect:
+        x: 5
+        y: 7
+        width: 22
+        height: 17
+      spriteId: cc3b544823a38c645a7263b21390d204
+    - name: RemboEnemy_Frame_19
+      frameIndex: 19
+      additiveSortOrder: 0
+      cellRect:
+        x: 4
+        y: 8
+        width: 24
+        height: 16
+      spriteId: ee4ff8b4594fc3949b4db9ef7e2794a1
+    - name: RemboEnemy_Frame_20
+      frameIndex: 20
+      additiveSortOrder: 0
+      cellRect:
+        x: 4
+        y: 6
+        width: 24
+        height: 17
+      spriteId: 5eb7decbf0a09eb47be5418b0656aa1d
+    - name: RemboEnemy_Frame_21
+      frameIndex: 21
+      additiveSortOrder: 0
+      cellRect:
+        x: 4
+        y: 6
+        width: 23
+        height: 17
+      spriteId: f0802cb1835fbc54ba78b0af2588cdfb
+    - name: RemboEnemy_Frame_22
+      frameIndex: 22
+      additiveSortOrder: 0
+      cellRect:
+        x: 4
+        y: 6
+        width: 22
+        height: 17
+      spriteId: 0f1c8fc4df0a17d4386e23955457f053
+    - name: RemboEnemy_Frame_23
+      frameIndex: 23
+      additiveSortOrder: 0
+      cellRect:
+        x: 4
+        y: 6
+        width: 22
+        height: 18
+      spriteId: 382525a66f631e947ad111ab93d6f818
+    - name: RemboEnemy_Frame_24
+      frameIndex: 24
+      additiveSortOrder: 0
+      cellRect:
+        x: 4
+        y: 6
+        width: 23
+        height: 18
+      spriteId: 30b89a11eaa424d4299174d189a87396
+    - name: RemboEnemy_Frame_25
+      frameIndex: 25
+      additiveSortOrder: 0
+      cellRect:
+        x: 4
+        y: 6
+        width: 24
+        height: 18
+      spriteId: 4af55712f36b5b944837be33b095d7e3
+    - name: RemboEnemy_Frame_26
+      frameIndex: 26
+      additiveSortOrder: 0
+      cellRect:
+        x: 4
+        y: 6
+        width: 24
+        height: 19
+      spriteId: 4557ffe4302e204468e42ca91a27795e
+    - name: RemboEnemy_Frame_27
+      frameIndex: 27
+      additiveSortOrder: 0
+      cellRect:
+        x: 4
+        y: 6
+        width: 23
+        height: 19
+      spriteId: 48176c75bac7df240acd193052444abf
+    - name: RemboEnemy_Frame_28
+      frameIndex: 28
+      additiveSortOrder: 0
+      cellRect:
+        x: 4
+        y: 6
+        width: 22
+        height: 19
+      spriteId: 8b1bf3e9b4c7163419fd86eb0f2c7ce1
+    - name: RemboEnemy_Frame_29
+      frameIndex: 29
+      additiveSortOrder: 0
+      cellRect:
+        x: 4
+        y: 6
+        width: 22
+        height: 18
+      spriteId: 59dd871f571e4d44b80817f7bb6af816
+    - name: RemboEnemy_Frame_30
+      frameIndex: 30
+      additiveSortOrder: 0
+      cellRect:
+        x: 4
+        y: 6
+        width: 23
+        height: 18
+      spriteId: f92400c41bcfa0c438ba00607bcc5f17
+    - name: RemboEnemy_Frame_31
+      frameIndex: 31
+      additiveSortOrder: 0
+      cellRect:
+        x: 4
+        y: 6
+        width: 24
+        height: 18
+      spriteId: 394ccb08b1881e74cb5e3ee05f19ddc2
+    - name: RemboEnemy_Frame_0
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 4
+        y: 9
+        width: 24
+        height: 14
+      spriteId: d29a16f97f998c04993271311509fa53
+    - name: RemboEnemy_Frame_1
+      frameIndex: 1
+      additiveSortOrder: 0
+      cellRect:
+        x: 4
+        y: 8
+        width: 24
+        height: 14
+      spriteId: 8335b1e193b1c6347b6dfafc58aac8ac
+    - name: RemboEnemy_Frame_2
+      frameIndex: 2
+      additiveSortOrder: 0
+      cellRect:
+        x: 4
+        y: 7
+        width: 24
+        height: 14
+      spriteId: 742cbbcfc8d52694ebea8835e3122e8e
+    - name: RemboEnemy_Frame_3
+      frameIndex: 3
+      additiveSortOrder: 0
+      cellRect:
+        x: 4
+        y: 8
+        width: 24
+        height: 14
+      spriteId: f415ea7fcbc411748bff43275c1b292b
+    - name: RemboEnemy_Frame_4
+      frameIndex: 4
+      additiveSortOrder: 0
+      cellRect:
+        x: 4
+        y: 6
+        width: 24
+        height: 17
+      spriteId: bc11d52c7b421dd499a77b90b4b833aa
+    - name: RemboEnemy_Frame_5
+      frameIndex: 5
+      additiveSortOrder: 0
+      cellRect:
+        x: 4
+        y: 6
+        width: 24
+        height: 16
+      spriteId: 42c0dc23f457ee042b071d22e2d57a20
+    - name: RemboEnemy_Frame_6
+      frameIndex: 6
+      additiveSortOrder: 0
+      cellRect:
+        x: 4
+        y: 6
+        width: 24
+        height: 15
+      spriteId: 841ec456afdacb04eb0e03517a6a202e
+    - name: RemboEnemy_Frame_7
+      frameIndex: 7
+      additiveSortOrder: 0
+      cellRect:
+        x: 4
+        y: 6
+        width: 24
+        height: 16
+      spriteId: 82d835212c31fa14c996ba7a047bf930
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  generatePhysicsShape: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 32, y: 29}

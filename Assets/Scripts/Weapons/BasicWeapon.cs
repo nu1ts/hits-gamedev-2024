@@ -17,12 +17,18 @@ public abstract class BasicWeapon : MonoBehaviour
     public int cost;
 
     protected PlayerWeaponController playerWeaponController;
+    protected AIWeaponController aiWeaponController;
 
     public abstract void UseWeapon();
 
     public void SetPlayerWeaponController(PlayerWeaponController controller)
     {
         playerWeaponController = controller;
+    }
+    
+    public void SetAiWeaponController(AIWeaponController controller)
+    {
+        aiWeaponController = controller;
     }
 
     protected IEnumerator Cooldown()
