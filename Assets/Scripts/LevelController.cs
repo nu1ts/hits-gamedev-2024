@@ -21,6 +21,11 @@ public class LevelController : MonoBehaviour
         }
     }
 
+    public void FirstLevel()
+    {
+        StartCoroutine(Transition(1, "0 - 1"));
+    }
+
     public void NextLevel()
     {
         StartCoroutine(Transition(SceneManager.GetActiveScene().buildIndex + 1, "0 - " + (SceneManager.GetActiveScene().buildIndex + 1)));
