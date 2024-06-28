@@ -7,9 +7,7 @@ public class PlayerWeaponController : MonoBehaviour
     public BasicWeapon currentWeapon;
     private bool isFiring;
     public Transform weaponPoint;
-
-    public Transform rightHandPoint;
-    private Animator rightHandAnimator;
+    
     public AmmoCounterUI ammoCounterUI;
 
     private CameraController _cameraController;
@@ -19,8 +17,6 @@ public class PlayerWeaponController : MonoBehaviour
     private void Start()
     {
         _cameraController = FindObjectOfType<CameraController>();
-        rightHandAnimator = rightHandPoint.GetComponent<Animator>();
-        CheckRightArmAnimator();
 
         InitializeInitialWeapon();
     }
@@ -105,26 +101,6 @@ public class PlayerWeaponController : MonoBehaviour
         }
 
         currentWeapon.SetPlayerWeaponController(this);
-
-        CheckRightArmAnimator();
-    }
-
-    private void CheckRightArmAnimator()
-    {
-        if (currentWeapon)
-        {
-            if (rightHandAnimator != null)
-            {
-                rightHandAnimator.enabled = false;
-            }
-        }
-        else
-        {
-            if (rightHandAnimator != null)
-            {
-                rightHandAnimator.enabled = true;
-            }
-        }
     }
 
     public void CameraShake(float cameraShakeDuration, float cameraShakeMagnitude)

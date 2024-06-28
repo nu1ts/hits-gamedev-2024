@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 5672781907672612333}
   - component: {fileID: 8102368277733894555}
   - component: {fileID: 4118835219786244562}
-  m_Layer: 0
+  - component: {fileID: 2670132791257149362}
+  m_Layer: 7
   m_Name: LauncherPickup
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bdebbed398563b41984898b13e618e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 2538291489869906187, guid: 087e4c32718ed5d41a4e97f7ce2b8286, type: 3}
+  weaponPrefab: {fileID: 5161399662169701024, guid: 087e4c32718ed5d41a4e97f7ce2b8286, type: 3}
 --- !u!58 &4118835219786244562
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -134,3 +135,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2
+--- !u!114 &2670132791257149362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7245435083774052339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87dfaabeb1ffbed4fab4f249ae32f010, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponPrefab: {fileID: 5161399662169701024, guid: 087e4c32718ed5d41a4e97f7ce2b8286, type: 3}

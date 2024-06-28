@@ -1,10 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MoveController
+public class PlayerMovement : Move
 {
     public float speed = 30f;
     public float acceleration = 100f;
@@ -23,9 +22,8 @@ public class PlayerMovement : MoveController
 
     public PlayerDashController dashController;
 
-    protected override void Awake()
+    protected void Awake()
     {
-        base.Awake();
         _cam = Camera.main;
         _isMovingHash = Animator.StringToHash("isMoving");
     }

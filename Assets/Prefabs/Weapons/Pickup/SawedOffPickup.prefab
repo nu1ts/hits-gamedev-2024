@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 3591695087306465173}
   - component: {fileID: 3587352758205943574}
   - component: {fileID: 5139925899128886871}
-  m_Layer: 0
+  - component: {fileID: 6337041434918801666}
+  m_Layer: 7
   m_Name: SawedOffPickup
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,3 +135,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2
+--- !u!114 &6337041434918801666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7251103026714549629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87dfaabeb1ffbed4fab4f249ae32f010, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponPrefab: {fileID: 7988642880916327595, guid: 2f9a461b0c3b84249a69747f93d7d2e3, type: 3}

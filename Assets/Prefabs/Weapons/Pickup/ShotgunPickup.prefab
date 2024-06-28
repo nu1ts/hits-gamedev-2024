@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 5609795589682122105}
   - component: {fileID: 1039132817906773077}
   - component: {fileID: 6334738001634523303}
+  - component: {fileID: 4409010231656272730}
   m_Layer: 7
   m_Name: ShotgunPickup
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,3 +135,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2
+--- !u!114 &4409010231656272730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2192318977688068167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87dfaabeb1ffbed4fab4f249ae32f010, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponPrefab: {fileID: 7441544407549925640, guid: b584bc6f1c44d5a40baeeab273674343, type: 3}

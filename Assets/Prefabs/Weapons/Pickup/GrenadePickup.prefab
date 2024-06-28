@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 29907099645121400}
   - component: {fileID: 362360341182701616}
   - component: {fileID: 678148339872581107}
-  m_Layer: 0
+  - component: {fileID: 3895346460334981258}
+  m_Layer: 7
   m_Name: GrenadePickup
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,3 +135,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2
+--- !u!114 &3895346460334981258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5434067195196780379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87dfaabeb1ffbed4fab4f249ae32f010, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponPrefab: {fileID: 222475172291961526, guid: e447cbf912cc1de49b3b3f8b27883f1d, type: 3}
