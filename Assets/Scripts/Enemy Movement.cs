@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class EnemyMovement : MoveController
+public class EnemyMovement : Move
 {
     public float speed = 3f;
     public float acceleration = 100f;
@@ -19,10 +19,8 @@ public class EnemyMovement : MoveController
     private int _isMovingHash;
     private List<Animator> _animators;
 
-    protected override void Awake()
+    private void Awake()
     {
-        base.Awake();
-        
         _isMovingHash = Animator.StringToHash("isMoving");
         
         if (target != null) return;
