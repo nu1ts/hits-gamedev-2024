@@ -987,6 +987,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7382556809455896416, guid: 14c853d7f497b2e4f82361a8f6d60207, type: 3}
+      propertyPath: ammoCounterUI
+      value: 
+      objectReference: {fileID: 632778589}
+    - target: {fileID: 7382556809455896416, guid: 14c853d7f497b2e4f82361a8f6d60207, type: 3}
       propertyPath: initialWeaponPrefab
       value: 
       objectReference: {fileID: 1899372581032082203, guid: 6452d594195d8014384e52c19db100a4, type: 3}
@@ -55609,8 +55613,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 16777215
-  m_fontColor: {r: 1, g: 1, b: 1, a: 0}
+    rgba: 2030043312
+  m_fontColor: {r: 0.6886792, g: 0, b: 0, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

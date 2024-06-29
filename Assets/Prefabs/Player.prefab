@@ -235,6 +235,7 @@ MonoBehaviour:
   speed: 20
   rotationSpeed: 10
   acceleration: 100
+  dashController: {fileID: 3429150940986255890}
 --- !u!114 &5756575292563411824
 MonoBehaviour:
   m_ObjectHideFlags: 0

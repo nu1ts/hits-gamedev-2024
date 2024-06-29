@@ -1,4 +1,6 @@
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelFinish : MonoBehaviour
 {
@@ -6,7 +8,11 @@ public class LevelFinish : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            if(EnemyManager.instance.AreAllEnemiesDead())
+            if (SceneManager.GetActiveScene().buildIndex == 3)
+            {
+                LevelController.instance.GoToMenu();
+            }
+            else if (EnemyManager.instance.AreAllEnemiesDead())
             {
                 LevelController.instance.NextLevel();
             }

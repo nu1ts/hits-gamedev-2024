@@ -36,6 +36,11 @@ public class LevelController : MonoBehaviour
         StartCoroutine(Transition(SceneManager.GetActiveScene().buildIndex, "0 - " + SceneManager.GetActiveScene().buildIndex));
     }
 
+    public void GoToMenu()
+    {
+        StartCoroutine(Transition(0, "GAME OVER :)"));
+    }
+
     public void NeedToKillAll()
     {
         StartCoroutine(TransitionKillAll());
