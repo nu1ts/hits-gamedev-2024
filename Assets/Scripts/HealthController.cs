@@ -104,6 +104,8 @@ public class HealthController : MonoBehaviour, IDamageable
 
     private void Die()
     {
+        BloodEffect();
+
         EnemyMovement enemyMovement = GetComponentInParent<EnemyMovement>();
         if (enemyMovement != null)
         {
