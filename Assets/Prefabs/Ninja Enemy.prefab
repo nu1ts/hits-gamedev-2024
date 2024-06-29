@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3555927514225462835}
   m_Layer: 6
   m_Name: Patrol
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 2142185593947591593}
   m_Layer: 6
   m_Name: Search Weapon
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 3469534300140800894}
   m_Layer: 6
   m_Name: Chase
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 645879749702533684}
   m_Layer: 6
   m_Name: Attack
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -527,7 +527,7 @@ GameObject:
   - component: {fileID: 5235578861084907287}
   m_Layer: 10
   m_Name: WeaponPoint
-  m_TagString: Player
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -559,7 +559,7 @@ GameObject:
   - component: {fileID: 7508975504371535182}
   m_Layer: 6
   m_Name: Idle
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -605,7 +605,7 @@ GameObject:
   - component: {fileID: 5828915978474631929}
   m_Layer: 6
   m_Name: Blood
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -638,7 +638,7 @@ GameObject:
   - component: {fileID: 4474807996443501777}
   m_Layer: 6
   m_Name: Behaviours
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -676,7 +676,7 @@ GameObject:
   - component: {fileID: 4377778565754272357}
   m_Layer: 6
   m_Name: Run
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -814,12 +814,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd6561d74cd2fd34da7f5db9355d8436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
+  maxHealth: 75
   bloodParticleSystemWall: {fileID: 7427696905690622014}
   bloodParticleSystemFloor: {fileID: 6885146879780801362}
   deadBodyPrefab: {fileID: 8177629285040505664, guid: e84cfd43050ffa0459366d988ec85996, type: 3}
   knockbackDuration: 0.2
   healthBarUI: {fileID: 0}
+  spriteObject: {fileID: 8045612766306333820}
+  weaponObject: {fileID: 8357276362137603520}
 --- !u!1 &8357276362137603520
 GameObject:
   m_ObjectHideFlags: 0
@@ -831,7 +833,7 @@ GameObject:
   - component: {fileID: 6039192173956384753}
   m_Layer: 10
   m_Name: EquippedWeapon
-  m_TagString: Player
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -863,6 +865,10 @@ PrefabInstance:
     - target: {fileID: -2253911629886400664, guid: da6e9a106bd6825488bad1b3392aa168, type: 3}
       propertyPath: m_Name
       value: NinjaEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: da6e9a106bd6825488bad1b3392aa168, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: da6e9a106bd6825488bad1b3392aa168, type: 3}
       propertyPath: m_LocalPosition.x
@@ -917,6 +923,11 @@ Animator:
 --- !u!4 &7082535629985078297 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7878350319992209165, guid: da6e9a106bd6825488bad1b3392aa168, type: 3}
+  m_PrefabInstance: {fileID: 1089797985882514196}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8045612766306333820 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -2253911629886400664, guid: da6e9a106bd6825488bad1b3392aa168, type: 3}
   m_PrefabInstance: {fileID: 1089797985882514196}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1121046310554722529
@@ -974,6 +985,10 @@ PrefabInstance:
     - target: {fileID: 6611425786803356819, guid: a66a7888159af1f47be8a649079e80f2, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6611425786803356819, guid: a66a7888159af1f47be8a649079e80f2, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1045,6 +1060,10 @@ PrefabInstance:
     - target: {fileID: 6704975169192728227, guid: e8f37d71e7fac3c4fa5f0e4b89b0de2e, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704975169192728227, guid: e8f37d71e7fac3c4fa5f0e4b89b0de2e, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

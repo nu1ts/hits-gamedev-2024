@@ -18,7 +18,7 @@ public class RangedWeapon : BasicWeapon
     public float cameraShakeDuration = 0.1f; // Длительность тряски камеры
     public float cameraShakeMagnitude = 0.2f;
 
-    private Rigidbody2D playerRb;
+    protected Rigidbody2D playerRb;
     public AmmoCounterUI ammoCounterUI;
 
     public GameObject muzzleFlashPrefab;
@@ -80,6 +80,7 @@ public class RangedWeapon : BasicWeapon
 
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, rotation);
         Bullet bullet = projectile.GetComponent<Bullet>();
+        bullet.friendlyTag = playerRb.tag;
 
         if (bullet != null)
         {

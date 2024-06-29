@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -12,6 +13,7 @@ public class Bullet : MonoBehaviour
     private bool hasDealtDamage = false;
 
     public LayerMask collisionLayers;
+    public string friendlyTag;
 
     public bool canRicochet = false;
 
@@ -55,7 +57,7 @@ public class Bullet : MonoBehaviour
                     Destroy(gameObject);
                 }
             }
-            else if (hit.collider != null && !hasDealtDamage)
+            else if (hit.collider != null && !hasDealtDamage && !hit.collider.CompareTag(friendlyTag))
             {
                 // Наносим урон при столкновении
                 IDamageable damageReceiver = hit.collider.GetComponent<IDamageable>();

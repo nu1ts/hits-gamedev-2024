@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ExplosiveBarrel : MonoBehaviour, IDamageable
@@ -37,7 +35,7 @@ public class ExplosiveBarrel : MonoBehaviour, IDamageable
         {
             // Проверяем, является ли объект бочкой и взрываем его
             ExplosiveBarrel explosiveBarrel = hit.GetComponent<ExplosiveBarrel>();
-            if (explosiveBarrel == this)
+            if (explosiveBarrel.gameObject == this.gameObject)
             {
                 continue; // Продолжаем итерацию, чтобы не выполнять damageable.TakeDamage
             }

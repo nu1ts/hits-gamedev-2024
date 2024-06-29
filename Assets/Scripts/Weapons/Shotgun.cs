@@ -14,7 +14,9 @@ public class Shotgun : RangedWeapon
         {
             float angle = startAngle + i * stepAngle;
             Quaternion rotation = firePoint.rotation * Quaternion.Euler(0, 0, angle);
-            Instantiate(projectilePrefab, firePoint.position, rotation);
+            GameObject projectile = Instantiate(projectilePrefab, firePoint.position, rotation);
+            Bullet bullet = projectile.GetComponent<Bullet>();
+            bullet.friendlyTag = playerRb.tag;
         }
 
         // for (int i = 0; i < pelletCount; i++)

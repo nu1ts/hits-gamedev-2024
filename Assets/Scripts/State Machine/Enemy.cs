@@ -36,7 +36,7 @@ namespace State_Machine
 
         private void Update()
         {
-            Debug.Log(CurrentState);
+            //Debug.Log(CurrentState);
             SelectState();
             CurrentState.DoBranch();
         }

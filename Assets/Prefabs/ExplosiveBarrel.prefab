@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 5093135569168681912}
   - component: {fileID: 2924404886798892434}
   - component: {fileID: 3176653552362969762}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: ExplosiveBarrel
-  m_TagString: Untagged
+  m_TagString: ExplosiveBarrel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,7 +117,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -162,12 +162,12 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 4
+  m_Radius: 5
 --- !u!114 &2924404886798892434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,7 +184,7 @@ MonoBehaviour:
   explosionRadius: 5
   damageLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1088
   explosionEffect: {fileID: 3973172031157669853, guid: 37a93861f5a566242ae18943943cc2e0, type: 3}
   cameraShakeDuration: 0.3
   cameraShakeMagnitude: 0.5

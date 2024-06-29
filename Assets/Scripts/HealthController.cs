@@ -120,7 +120,7 @@ public class HealthController : MonoBehaviour, IDamageable
         }
 
         BasicWeapon weaponEquipped = weaponObject.GetComponentInChildren<BasicWeapon>();
-        if(!(weaponEquipped is MeleeWeapon))
+        if(!(weaponEquipped is MeleeWeapon) && weaponEquipped != null)
         {
             weaponEquipped.DropWeapon();
         }

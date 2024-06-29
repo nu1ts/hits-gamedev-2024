@@ -654,7 +654,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd6561d74cd2fd34da7f5db9355d8436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
+  maxHealth: 50
   bloodParticleSystemWall: {fileID: 3941045682990293094}
   bloodParticleSystemFloor: {fileID: 7455423823057059449}
   deadBodyPrefab: {fileID: 8177629285040505664, guid: e84cfd43050ffa0459366d988ec85996, type: 3}

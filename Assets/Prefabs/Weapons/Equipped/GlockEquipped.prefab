@@ -163,7 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Glock
   cooldownTime: 0.5
-  damage: 10
+  damage: 20
   fireMode: 0
   cost: 0
   weaponPickup: {fileID: 2486200122357099892, guid: b254af1d2a5095746b573b8d975bdf8a, type: 3}

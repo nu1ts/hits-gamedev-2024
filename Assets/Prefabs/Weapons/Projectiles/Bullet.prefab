@@ -277,5 +277,6 @@ MonoBehaviour:
   knockbackForce: 10
   collisionLayers:
     serializedVersion: 2
-    m_Bits: 1344
+    m_Bits: 9536
+  friendlyTag: 
   canRicochet: 0

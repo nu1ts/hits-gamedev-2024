@@ -49,9 +49,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Hands
   cooldownTime: 1
-  damage: 30
+  damage: 45
   fireMode: 0
   cost: 0
+  weaponPickup: {fileID: 0}
   attackArea: {fileID: 1659039342510857047}
   enemyLayers:
     serializedVersion: 2

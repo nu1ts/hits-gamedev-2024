@@ -164,7 +164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Minigun
   cooldownTime: 0.1
-  damage: 10
+  damage: 15
   fireMode: 1
   cost: 15
   weaponPickup: {fileID: 6291284480156039653, guid: f47e61b58af41964c8830cdabba0a809, type: 3}

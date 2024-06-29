@@ -195,7 +195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: 
   cooldownTime: 1.5
-  damage: 0
+  damage: 15
   fireMode: 1
   cost: 0
   weaponPickup: {fileID: 1039132817906773077, guid: 3fbbe782386af8546a30ed3ff0782dad, type: 3}
