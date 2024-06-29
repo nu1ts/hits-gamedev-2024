@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerWeaponController : MonoBehaviour
 {
@@ -79,6 +80,10 @@ public class PlayerWeaponController : MonoBehaviour
     {
         if (currentWeapon != null)
         {
+            if(!(currentWeapon is MeleeWeapon))
+            {
+                currentWeapon.DropWeapon();
+            }
             Destroy(currentWeapon.gameObject);
         }
 

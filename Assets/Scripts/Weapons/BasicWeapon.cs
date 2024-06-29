@@ -19,13 +19,15 @@ public abstract class BasicWeapon : MonoBehaviour
     protected PlayerWeaponController playerWeaponController;
     protected AIWeaponController aiWeaponController;
 
+    public WeaponPickup weaponPickup;
+
     public abstract void UseWeapon();
 
     public void SetPlayerWeaponController(PlayerWeaponController controller)
     {
         playerWeaponController = controller;
     }
-    
+
     public void SetAiWeaponController(AIWeaponController controller)
     {
         aiWeaponController = controller;
@@ -41,5 +43,10 @@ public abstract class BasicWeapon : MonoBehaviour
     public bool IsWeaponOnCooldown()
     {
         return isCooldown;
+    }
+
+    public void DropWeapon()
+    {
+        Instantiate(weaponPickup, transform.position, transform.rotation);
     }
 }

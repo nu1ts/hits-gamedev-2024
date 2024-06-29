@@ -89,7 +89,10 @@ public class RangedWeapon : BasicWeapon
 
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
 
-        ApplyRecoil();
+        if(playerRb.transform.root.CompareTag("Player"))
+        {
+            ApplyRecoil();
+        }
 
         if(playerWeaponController) playerWeaponController.CameraShake(cameraShakeDuration, cameraShakeMagnitude);
 

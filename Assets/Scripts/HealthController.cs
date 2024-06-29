@@ -119,6 +119,12 @@ public class HealthController : MonoBehaviour, IDamageable
             enemyCorpseController.Slide(transform.up);
         }
 
+        BasicWeapon weaponEquipped = weaponObject.GetComponentInChildren<BasicWeapon>();
+        if(!(weaponEquipped is MeleeWeapon))
+        {
+            weaponEquipped.DropWeapon();
+        }
+
         EnemyManager.instance.UnregisterEnemy(transform.root.gameObject);
         DisableInteractions();
         Destroy(transform.root.gameObject, 3f);

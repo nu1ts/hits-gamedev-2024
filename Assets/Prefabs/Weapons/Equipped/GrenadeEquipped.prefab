@@ -102,6 +102,8 @@ MonoBehaviour:
   cooldownTime: 2
   damage: 0
   fireMode: 0
+  cost: 0
+  weaponPickup: {fileID: 362360341182701616, guid: 67e342d11c31a524c9f7f354cfa8e346, type: 3}
   projectilePrefab: {fileID: 4064974975758758686, guid: ab25e330ca6d26342ba909f0e6d8d625, type: 3}
   throwPoint: {fileID: 1803428123681465836}
   throwForce: 5

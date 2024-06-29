@@ -167,6 +167,7 @@ MonoBehaviour:
   damage: 150
   fireMode: 1
   cost: 0
+  weaponPickup: {fileID: 3587352758205943574, guid: 912e4b55d99231b4d99e7317d7efe54a, type: 3}
   projectilePrefab: {fileID: 881813572228134020, guid: 3a5b59416cb86fe4b8f8c87b49a96596, type: 3}
   firePoint: {fileID: 5409239046724168285}
   muzzleFlashPoint: {fileID: 7024666134608932844}
@@ -176,6 +177,7 @@ MonoBehaviour:
   recoilDuration: 0.2
   cameraShakeDuration: 0.1
   cameraShakeMagnitude: 0.2
+  ammoCounterUI: {fileID: 0}
   muzzleFlashPrefab: {fileID: 7319488933583184703, guid: c34d63cf58ad7ff428be7b7781e7c3ac, type: 3}
   spreadAngle: 15
   canRicochet: 0

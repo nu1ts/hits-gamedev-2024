@@ -937,6 +937,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: 50efda637fc4dd8478d4e8274e26b983, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: 50efda637fc4dd8478d4e8274e26b983, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 2144571283
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 50efda637fc4dd8478d4e8274e26b983, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
