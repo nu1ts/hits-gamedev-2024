@@ -11,7 +11,7 @@ namespace State_Machine
         public Search search;
         public SearchWeapon searchWeapon;
         public Attack attack;
-        
+
         [Header("Enemy Data")]
         public float attackDistance = 2;
         public Transform currentTarget;
@@ -21,13 +21,13 @@ namespace State_Machine
         public int GetTargetsCount() => targets?.Count ?? 0;
         public List<SteeringBehaviorBase> steeringBehaviours;
         public ContextSolver movementDirectionSolver;
-        
+
         [Header("Enemy Detectors Data")]
         public float detectionDelay = 0.05f;
         private float _detectionTimer;
         public List<Detector> detectors;
         public Detector weaponDetector;
-        
+
         private void Start()
         {
             SetupInstances();
@@ -46,14 +46,14 @@ namespace State_Machine
             PerformDetection();
             CurrentState.FixedDoBranch();
         }
-        
+
         private void SelectState()
         {
             if (!CurrentState.IsComplete && CurrentState != patrol) return;
 
             if (GetTargetsCount() > 0)
             {
-                if(!gunDetector.isGunEquipped) 
+                if (!gunDetector.isGunEquipped)
                     Machine.Set(searchWeapon);
                 currentTarget = targets[0];
             }
@@ -66,7 +66,7 @@ namespace State_Machine
                 case Chase:
                     if (currentTarget && currentTarget.CompareTag("Player"))
                         Machine.Set(attack);
-                    else 
+                    else
                         Machine.Set(search);
                     break;
                 case Search:
@@ -81,7 +81,7 @@ namespace State_Machine
                     break;
             }
         }
-        
+
         private void PerformDetection()
         {
             _detectionTimer += Time.fixedDeltaTime;
@@ -94,15 +94,23 @@ namespace State_Machine
             }
             _detectionTimer = 0;
         }
-        
+
         public bool CloseEnough()
         {
             return Vector2.Distance(transform.position, currentTarget.position) < attackDistance;
         }
-        
+
         public void UpdateAttackDistance(float detectionRange)
         {
             attackDistance = attackDistance > detectionRange ? detectionRange : attackDistance;
         }
+
+        // public void DisableParts()
+        // {
+        //     if (head != null)
+        //     {
+        //         head.SetActive(false);
+        //     }
+        // }
     }
 }

@@ -51,7 +51,7 @@ namespace State_Machine
         private void HandleMovement()
         {
             var targetPosition = (Vector2)transform.position + Input;
-            MoveFromTo(transform.position, targetPosition, speed, acceleration);
+            MoveFromTo(transform.position, targetPosition, speed / Time.timeScale, acceleration);
         }
         
         private void OnMovement(InputValue inputValue)

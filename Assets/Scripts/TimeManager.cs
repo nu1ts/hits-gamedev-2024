@@ -50,8 +50,10 @@ public class TimeManager : MonoBehaviour
         Time.timeScale = slowScale;
 
         // Увеличиваем скорость игрока, но не чрезмерно
-        //playerMovement.speed /= slowScale;
-        playerMovement.acceleration /= slowScale;
+        playerMovement.speed /= slowScale*2;
+        Debug.Log(playerMovement.acceleration);
+        playerMovement.acceleration /= slowScale*2;
+        Debug.Log(playerMovement.acceleration);
 
         // Активация ускоренного эффекта
         ActivateEffect(duration);

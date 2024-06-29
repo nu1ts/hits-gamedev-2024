@@ -12,6 +12,8 @@ public class HealthController : MonoBehaviour, IDamageable
     private Rigidbody2D rb;
 
     public HealthBarUI healthBarUI;
+    public GameObject spriteObject;
+    public GameObject weaponObject;
 
     private void Start()
     {
@@ -28,7 +30,7 @@ public class HealthController : MonoBehaviour, IDamageable
     {
         currentHealth -= damage;
 
-        Vector2 knockbackDirection = -transform.up;
+        Vector2 knockbackDirection = transform.up;
         StartCoroutine(ApplyKnockback(knockbackDirection, knockbackForce));
 
         //Debug.Log($"{gameObject.name} получил урон: {damage}. Текущие HP: {currentHealth}");
@@ -102,28 +104,54 @@ public class HealthController : MonoBehaviour, IDamageable
 
     private void Die()
     {
-        // Логика смерти
-        BloodEffect();
-
         EnemyMovement enemyMovement = GetComponentInParent<EnemyMovement>();
         if (enemyMovement != null)
         {
             enemyMovement.DisableParts();
         }
 
-        // Создание спрайта мёртвого тела
         GameObject deadBody = Instantiate(deadBodyPrefab, transform.position, transform.rotation);
         EnemyCorpseController enemyCorpseController = deadBody.GetComponent<EnemyCorpseController>();
         if (enemyCorpseController != null)
         {
-            // Применение силы отбрасывания к мёртвому телу
-            //StartCoroutine(SlideDeadBody(deadBodyController, -transform.up));
             enemyCorpseController.Slide(transform.up);
         }
 
         EnemyManager.instance.UnregisterEnemy(transform.root.gameObject);
-
+        DisableInteractions();
         Destroy(transform.root.gameObject, 3f);
+        if (gameObject.CompareTag("Player"))
+        {
+            LevelController.instance.RestartLevel();
+        }
+        Destroy(gameObject);
+    }
+
+    private void DisableInteractions()
+    {
+        // Отключаем все коллайдеры
+        Collider2D collider = GetComponent<Collider2D>();
+        collider.enabled = false;
+
+        // Отключаем все скрипты, кроме тех, что управляют эффектами
+        MonoBehaviour[] scripts = GetComponentsInParent<MonoBehaviour>();
+        foreach (MonoBehaviour script in scripts)
+        {
+            if (!(script is HealthController || script is EnemyCorpseController))
+            {
+                script.enabled = false;
+            }
+        }
+
+        // Отключаем физическое взаимодействие
+        Rigidbody2D rb = GetComponentInParent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.simulated = false;
+        }
+
+        Destroy(spriteObject);
+        Destroy(weaponObject);
     }
 
     private IEnumerator SlideDeadBody(EnemyCorpseController enemyCorpseController, Vector2 slideDirection)

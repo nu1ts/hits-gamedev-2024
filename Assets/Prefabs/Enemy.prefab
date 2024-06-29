@@ -660,6 +660,8 @@ MonoBehaviour:
   deadBodyPrefab: {fileID: 8177629285040505664, guid: e84cfd43050ffa0459366d988ec85996, type: 3}
   knockbackDuration: 0.2
   healthBarUI: {fileID: 0}
+  spriteObject: {fileID: 5476020720557575772}
+  weaponObject: {fileID: 2772731026928539593}
 --- !u!1 &3975017842005776593
 GameObject:
   m_ObjectHideFlags: 0
@@ -988,6 +990,11 @@ Animator:
 --- !u!4 &5049451464460920377 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7878350319992209165, guid: 50efda637fc4dd8478d4e8274e26b983, type: 3}
+  m_PrefabInstance: {fileID: 3118395869640825140}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5476020720557575772 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -2253911629886400664, guid: 50efda637fc4dd8478d4e8274e26b983, type: 3}
   m_PrefabInstance: {fileID: 3118395869640825140}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6785749803523139769

@@ -277,7 +277,5 @@ MonoBehaviour:
   knockbackForce: 10
   collisionLayers:
     serializedVersion: 2
-    m_Bits: 320
-  teleportLayer:
-    serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 1344
+  canRicochet: 0

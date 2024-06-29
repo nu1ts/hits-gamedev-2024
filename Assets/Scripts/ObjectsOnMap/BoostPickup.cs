@@ -30,7 +30,6 @@ public class BoostPickup : MonoBehaviour
 
             // Активируем замедление времени
             PlayerMovement playerMovement = collision.GetComponentInParent<PlayerMovement>();
-            Debug.Log(playerMovement);
             if (playerMovement != null)
             {
                 TimeManager.instance.SlowTime(timeSlowDuration, timeSlowScale, playerMovement);
