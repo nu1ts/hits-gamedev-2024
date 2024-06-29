@@ -35,7 +35,7 @@ public class ExplosiveBarrel : MonoBehaviour, IDamageable
         {
             // Проверяем, является ли объект бочкой и взрываем его
             ExplosiveBarrel explosiveBarrel = hit.GetComponent<ExplosiveBarrel>();
-            if (explosiveBarrel.gameObject == this.gameObject)
+            if (explosiveBarrel == this)
             {
                 continue; // Продолжаем итерацию, чтобы не выполнять damageable.TakeDamage
             }
