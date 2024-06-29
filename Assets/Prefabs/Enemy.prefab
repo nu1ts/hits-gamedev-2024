@@ -66,7 +66,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   core: {fileID: 0}
   anim: {fileID: 5385968546439265871}
-  speed: 3
+  speed: 5
   rotationSpeed: 8
   destination: {x: 0, y: 0}
   threshold: 0.1
@@ -102,9 +102,9 @@ MonoBehaviour:
   anim: {fileID: 719441850472228952}
   runAnim: {fileID: 5385968546439265871}
   searchDuration: 5
-  rotationSpeed: 5
+  rotationSpeed: 7
   rotationInterval: 0.6
-  maxRotationAngle: 90
+  maxRotationAngle: 120
 --- !u!1 &1094921051328607732
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,11 +158,11 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1094921051328607732}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -209,7 +209,7 @@ MonoBehaviour:
   search: {fileID: 1053476482565919865}
   searchWeapon: {fileID: 6417336290423873092}
   attack: {fileID: 5089125462040421042}
-  attackDistance: 5
+  attackDistance: 7
   currentTarget: {fileID: 0}
   weapons: []
   targets: []
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beb24f28e5fbd0d4b93c921d7c2cf12a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRadius: 2
+  detectionRadius: 5
   layerMask:
     serializedVersion: 2
     m_Bits: 256
@@ -267,8 +267,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63cfeaf52c258a741bf259bed28d1780, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circleDetectionRange: 5
-  fovDetectionAngle: 45
+  circleDetectionRange: 6.5
+  fovDetectionAngle: 120
   fovDetectionRange: 14
   obstaclesLayerMask:
     serializedVersion: 2
@@ -437,8 +437,8 @@ MonoBehaviour:
   core: {fileID: 0}
   enemy: {fileID: 7784812041360530375}
   anim: {fileID: 5385968546439265871}
-  speed: 5
-  rotationSpeed: 10
+  speed: 10
+  rotationSpeed: 15
 --- !u!114 &760723516813856231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -451,7 +451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c4336efce108ec40ab3718a5793ec0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 5
+  radius: 10
   agentCollider: {fileID: 5927868374503340060}
   showGizmo: 0
 --- !u!114 &4024739274738637949
@@ -725,7 +725,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   core: {fileID: 0}
   anim: {fileID: 5385968546439265871}
-  speed: 5
+  speed: 10
   rotationSpeed: 10
   destination: {x: 0, y: 0}
   threshold: 0.1
@@ -753,13 +753,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7897741429688160857}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0.76604444, w: 0.64278764}
   m_LocalPosition: {x: 26.617, y: 8.765, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2304945232716890587}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 100}
 --- !u!1 &8359658885908950230
 GameObject:
   m_ObjectHideFlags: 0
