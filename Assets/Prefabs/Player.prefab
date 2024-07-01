@@ -78,6 +78,7 @@ Transform:
   m_Children:
   - {fileID: 4750594976852486152}
   - {fileID: 4856265240847319244}
+  - {fileID: 1652963697925334141}
   m_Father: {fileID: 1955117832354689935}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3185611217139342469
@@ -441,6 +442,52 @@ Transform:
   - {fileID: 4852795843743410554}
   m_Father: {fileID: 1955117832354689935}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5334642269987738280
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1652963697925334141}
+  - component: {fileID: 4058789519608708281}
+  m_Layer: 10
+  m_Name: KnifeAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1652963697925334141
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5334642269987738280}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8265847755901923562}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4058789519608708281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5334642269987738280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2215bc739ad34ad438c30ed1edc286c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  core: {fileID: 0}
+  attack: {fileID: -4740108384340228956, guid: 838ba63a4aaa1954cbeee30f59ce6569, type: 3}
 --- !u!1 &8824700738170999856
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,6 +700,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: KnifeEquipped
       objectReference: {fileID: 0}
+    - target: {fileID: 1899372581032082203, guid: 6452d594195d8014384e52c19db100a4, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 530902146699636734}
     - target: {fileID: 4582293069879572514, guid: 6452d594195d8014384e52c19db100a4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

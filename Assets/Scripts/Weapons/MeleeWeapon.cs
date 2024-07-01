@@ -1,31 +1,46 @@
 using System.Collections;
+using State_Machine;
 using UnityEngine;
 
 public class MeleeWeapon : BasicWeapon
 {
+    // public GameObject attackArea;
+    // public LayerMask enemyLayers;
+    // public BoxCollider2D attackCollider;
+    // public SpriteRenderer knifeSprite;
+    // public State attackKnifeState;
+
+    // private void Start()
+    // {
+    //     attackCollider = attackArea.GetComponent<BoxCollider2D>();
+    //     // Убедитесь, что вы назначаете AttackKnifeState через инспектор или в другом месте кода
+    // }
+
+    // public override void UseWeapon()
+    // {
+    //     if (isCooldown || attackKnifeState == null) return;
+    //     attackKnifeState.Enter(); // Вход в состояние атаки
+    //     StartCoroutine(Cooldown());
+    // }
+
     public GameObject attackArea;
     public LayerMask enemyLayers;
     private BoxCollider2D attackCollider;
-    private Animator leftArmAnimator;
-    private Animator rightArmAnimator;
 
-    private Animator animator;
+    public SpriteRenderer knifeSprite;
+
+    [Header("Animation")]
+    public State anim;
 
 
     private void Start()
     {
         attackCollider = attackArea.GetComponent<BoxCollider2D>();
-        //attackCollider.enabled = false; // Отключаем коллайдер по умолчанию
 
-        //leftArmAnimator = transform.root.Find("Arms/Left Arm").GetComponent<Animator>();
-        //rightArmAnimator = transform.root.Find("Arms/Right Arm").GetComponent<Animator>();
-
-        // if (leftArmAnimator == null || rightArmAnimator == null)
-        // {
-        //     Debug.LogError("Animator not found on arms.");
-        // }
-
-        animator = GetComponent<Animator>();
+        if (anim != null)
+        {
+            anim.SetCore(transform.root.GetComponent<Core>());
+        }
     }
 
     public override void UseWeapon()
@@ -37,21 +52,15 @@ public class MeleeWeapon : BasicWeapon
 
     private void Attack()
     {
-        // leftArmAnimator.Play("Right-hand-attack");
-        // rightArmAnimator.Play("Right-hand-attack");
-        if (animator != null)
-        {
-            animator.SetTrigger("Attack"); // Запуск анимации атаки
-        }
-        StartCoroutine(CooldownAttack());
+
     }
+
 
     //КОСТЫЛЬ ДЛЯ УДАРА КУЛАКАМИ (ЧТОБЫ АТАКА БЫЛА ВО ВРЕМЯ УДАРА ИМЕННО)
     protected IEnumerator CooldownAttack()
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.1f);
 
-        Debug.Log("KNIFE ATTACK");
         attackCollider.enabled = true;
 
         // Получаем всех врагов в зоне действия
