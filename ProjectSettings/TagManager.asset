@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - Shadow
+  - Wall
+  - Weapon
+  - ExplosiveBarrel
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Enemy
+  - Weapon
+  - Wall
+  - Bullet
+  - Player
+  - Teleport
+  - PostProcessing
+  - ExplosiveBarrel
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Floor
+    uniqueID: 2359321067
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Blood
+    uniqueID: 1890328277
+    locked: 0
+  - name: Weapon
+    uniqueID: 4210974959
+    locked: 0
+  - name: Arms
+    uniqueID: 3125345119
+    locked: 0
+  - name: Head
+    uniqueID: 2144571283
+    locked: 0
+  - name: Wall
+    uniqueID: 441308357
+    locked: 0
+  - name: Sky
+    uniqueID: 4073222575
+    locked: 0
+  - name: OverSky
+    uniqueID: 256320301
+    locked: 0
